@@ -20,7 +20,7 @@
   outputs =
     { self
     , nixpkgs
-      #, alacritty-theme
+    , alacritty-theme
     , home-manager
     , ...
     } @ inputs:
@@ -34,7 +34,13 @@
         hp-nixos = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           # > Our main nixos configuration file <
-          modules = [ ./nixos/configuration.nix ];
+          modules = [ 
+                  ({ config, pkgs, ...}: {
+                  # install the overlay
+                  nixpkgs.overlays = [ alacritty-theme.overlays.default ];
+                  })
+                  ./nixos/configuration.nix
+          ];
         };
       };
     };

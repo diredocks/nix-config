@@ -15,7 +15,7 @@
     # ./nvim.nix
   ];
 
-  nixpkgs = {
+  /*nixpkgs = {
     # You can add overlays here
     overlays = [
       # If you want to use overlays exported from other flakes:
@@ -35,7 +35,7 @@
       # Workaround for https://github.com/nix-community/home-manager/issues/2942
       allowUnfreePredicate = _: true;
     };
-  };
+  };*/
 
   home = {
     username = "leo";

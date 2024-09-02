@@ -40,6 +40,7 @@
   };
   home-manager = {
     extraSpecialArgs = { inherit inputs outputs; };
+    useGlobalPkgs = true;
     users = {
       leo = import ../home-manager/home.nix;
     };
