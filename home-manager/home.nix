@@ -78,7 +78,7 @@
     gcc
     ripgrep
     fd
-    wofi
+    #wofi
     fzf
     #swaybg
     #waybar
