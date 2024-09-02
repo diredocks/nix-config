@@ -14,6 +14,7 @@
     # Alacritty themes flake
     #alacritty-theme.url = "github:alexghr/alacritty-theme.nix?rev=2cd654fa494fc8ecb226ca1e7c5f91cf1cebbba9";
     alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
+    alacritty-theme.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
