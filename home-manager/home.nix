@@ -121,6 +121,9 @@
     shellAliases = {
       neofetch = "fastfetch";
     };
+    initExtra = ''
+      bindkey -s "^s" 'find . 2>/dev/null| fzf^M'
+    '';
     plugins = [
       { name = "fzf-tab"; src = "${pkgs.zsh-fzf-tab}/share/fzf-tab"; }
       { name = "zsh-fzf-history-search"; src = "${pkgs.zsh-fzf-history-search}/share/zsh-fzf-history-search"; }
@@ -128,7 +131,11 @@
     oh-my-zsh = {
       enable = true;
       theme = "ys";
-      plugins = [ "git" ];
+      plugins = [ "git" "ssh-agent" ];
+      extraConfig = ''
+        zstyle :omz:plugins:ssh-agent identities github_key
+        zstyle :omz:plugins:ssh-agent lifetime 30m
+      '';
     };
   };
 
