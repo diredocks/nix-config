@@ -134,7 +134,7 @@
       plugins = [ "git" "ssh-agent" ];
       extraConfig = ''
         zstyle :omz:plugins:ssh-agent identities github_key
-        zstyle :omz:plugins:ssh-agent lifetime 30m
+        zstyle :omz:plugins:ssh-agent lifetime 24h
       '';
     };
   };
