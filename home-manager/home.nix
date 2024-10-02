@@ -87,6 +87,7 @@
     #papirus-icon-theme
     obsidian
     vlc
+    wl-clipboard # for nvim clipboard support
   ];
 
   #home.file.".config/hypr" = {
