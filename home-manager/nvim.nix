@@ -95,6 +95,9 @@
             { "williamboman/mason-lspconfig.nvim", enabled = false },
             { "williamboman/mason.nvim", enabled = false },
             -- import/override with your plugins
+            { import = "lazyvim.plugins.extras.lang.go" },
+            { import = "lazyvim.plugins.extras.lang.clangd" },
+            { import = "lazyvim.plugins.extras.lang.rust" },
             --{ import = "plugins" },
             -- treesitter handled by xdg.configFile."nvim/parser", put this line at the end of spec to clear ensure_installed
             { "nvim-treesitter/nvim-treesitter",

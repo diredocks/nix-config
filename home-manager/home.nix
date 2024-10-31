@@ -143,7 +143,9 @@
   programs.alacritty = {
     enable = true;
     settings = {
-      import = [ pkgs.alacritty-theme.tokyo-night-storm ];
+      general = {
+          import = [ pkgs.alacritty-theme.tokyo-night-storm ];
+      };
       window = {
         dimensions = { columns = 115; lines = 35; };
       };
