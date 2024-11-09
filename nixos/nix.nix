@@ -6,6 +6,15 @@
 , ...
 }: {
   nixpkgs = {
+    overlays = [
+    (final: prev: {
+      kwin = prev.kwin.overrideAttrs (previousAttrs: {
+        patches = previousAttrs.patches ++ [
+          ./gesture.patch
+        ];
+      });
+    })
+    ];
     config = {
       allowUnfree = true;
     };
