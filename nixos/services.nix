@@ -58,6 +58,18 @@
   services.desktopManager.plasma6.enable = true;
   programs.kdeconnect.enable = true;
 
+  i18n.inputMethod = {
+    enabled = "fcitx5";
+    fcitx5 = {
+      addons = with pkgs; [
+        fcitx5-mozc
+        fcitx5-gtk
+        fcitx5-chinese-addons
+      ];
+      plasma6Support = true;
+    };
+  };
+
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;

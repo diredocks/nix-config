@@ -7,12 +7,21 @@
 }: {
   nixpkgs = {
     overlays = [
-    (final: prev: {
-      kwin = prev.kwin.overrideAttrs (previousAttrs: {
+    /*(final: prev: {
+      kdePackages.kwin = prev.kdePackages.kwin.overrideAttrs (previousAttrs: {
         patches = previousAttrs.patches ++ [
           ./gesture.patch
         ];
       });
+    })*/
+    (final: prev: {
+      kdePackages = prev.kdePackages.overrideScope (kfinal: kprev: {
+          kwin = kprev.kwin.overrideAttrs (previousAttrs: {
+              patches = previousAttrs.patches ++ [
+                ./gesture.patch
+              ];
+            });
+        });
     })
     ];
     config = {
