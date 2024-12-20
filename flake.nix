@@ -34,12 +34,12 @@
         hp-nixos = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           # > Our main nixos configuration file <
-          modules = [ 
-                  ({ config, pkgs, ...}: {
-                  # install the overlay
-                  nixpkgs.overlays = [ alacritty-theme.overlays.default ];
-                  })
-                  ./nixos/configuration.nix
+          modules = [
+            ({ config, pkgs, ... }: {
+              # install the overlay
+              nixpkgs.overlays = [ alacritty-theme.overlays.default ];
+            })
+            ./nixos/configuration.nix
           ];
         };
       };

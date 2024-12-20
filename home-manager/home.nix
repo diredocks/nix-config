@@ -15,28 +15,6 @@
     ./nvim.nix
   ];
 
-  /*nixpkgs = {
-    # You can add overlays here
-    overlays = [
-      # If you want to use overlays exported from other flakes:
-      # neovim-nightly-overlay.overlays.default
-
-      inputs.alacritty-theme.overlays.default
-
-      # Or define it inline, for example:
-      # (final: prev: {
-      #   hi = final.hello.overrideAttrs (oldAttrs: {
-      #     patches = [ ./change-hello-to-hi.patch ];
-      #   });
-      # })
-    ];
-    config = {
-      allowUnfree = true;
-      # Workaround for https://github.com/nix-community/home-manager/issues/2942
-      allowUnfreePredicate = _: true;
-    };
-  };*/
-
   home = {
     username = "leo";
     homeDirectory = "/home/leo";
@@ -55,17 +33,13 @@
 
   programs.git = {
     enable = true;
-    #userName = "diredocks";
-    #userEmail = "26994007+diredocks@users.noreply.github.com";
   };
 
 
   home.packages = with pkgs;[
     qbittorrent
     inkscape
-    burpsuite
     obs-studio
-    #microsoft-edge
     brave
     fastfetch
     hugo
@@ -77,45 +51,12 @@
     gcc
     ripgrep
     fd
-    #wofi
     fzf
-    #swaybg
-    #waybar
-    #pavucontrol
     firefox
-    #libinput-gestures
-    #papirus-icon-theme
     obsidian
     vlc
     wl-clipboard # for nvim clipboard support
   ];
-
-  #home.file.".config/hypr" = {
-  #  source = ./hyprland;
-  #  recursive = true;
-  #};
-
-  #home.file.".config/waybar" = {
-  #  source = ./waybar;
-  #  recursive = true;
-  #};
-
-  #gtk = {
-  #  enable = true;
-  /*theme = {
-      package = pkgs.adw-gtk3;
-      name = "adw-gtk3";
-    };*/
-  /*cursorTheme = {
-      package = pkgs.bibata-cursors;
-      name = "Bibata-Modern-Ice";
-    };*/
-  #};
-
-  #home.pointerCursor = {
-  #  package = pkgs.bibata-cursors;
-  #  name = "Bibata-Modern-Ice";
-  #};
 
   programs.zsh = {
     enable = true;
@@ -132,11 +73,7 @@
     oh-my-zsh = {
       enable = true;
       theme = "ys";
-      plugins = [ "git" "ssh-agent" ];
-      extraConfig = ''
-        zstyle :omz:plugins:ssh-agent identities github_key
-        zstyle :omz:plugins:ssh-agent lifetime 24h
-      '';
+      plugins = [ "git" ];
     };
   };
 
@@ -144,7 +81,7 @@
     enable = true;
     settings = {
       general = {
-          import = [ pkgs.alacritty-theme.tokyo-night-storm ];
+        import = [ pkgs.alacritty-theme.tokyo_night_storm ];
       };
       window = {
         dimensions = { columns = 115; lines = 35; };

@@ -9,7 +9,6 @@
     ./hardware-configuration.nix
     ./nix.nix
     ./services.nix
-    #   ./pixel_audio.nix
     inputs.home-manager.nixosModules.home-manager
   ];
 
@@ -27,12 +26,6 @@
     initrd /initramfs-linux-lts.img
     options root=UUID=f6215e55-ec45-48d7-b403-df87b39efcfe rw
   '';
-  #boot.loader.efi.canTouchEfiVariables = true;
-  #boot.extraModprobeConfig = ''
-  #  options snd-intel-dspcfg dsp_driver=4
-  #  options snd-soc-avs ignore_fw_version=1
-  #'';
-  #boot.blacklistedKernelModules = [ "snd_hda_intel" "snd_soc_skl" "snd_sof_pci_intel_skl" ];
 
   programs.zsh.enable = true;
 
@@ -56,36 +49,11 @@
     unzip
     wget
     vim
-    brightnessctl
     git
     htop
-    libpcap
     patchelf
     tailscale
-    #(alsa-ucm-conf.overrideAttrs (old: {
-    #	wttsrc = (pkgs.fetchFromGitHub {
-    #		owner = "WeirdTreeThing";
-    #		repo = "chromebook-ucm-conf";
-    #		rev = "4fd21f0550e036fa2916a6480dc46e325cf6b48e";
-    #		hash = "sha256-5Eb+7dsU7+uhDCFuhUlx6EHgb/MRj6RfyQk7t1ZtAgw=";
-    #      	       });
-    #    installPhase = ''
-    #	runHook preInstall
-    #
-    #	mkdir -p $out/share/alsa
-    #	cp -r ucm ucm2 $out/share/alsa
-    #
-    #	mkdir -p $out/share/alsa/ucm2/conf.d
-    #	cp -r $wttsrc/{hdmi,dmic}-common $wttsrc/avs/* $out/share/alsa/ucm2/conf.d
-    #
-    #	runHook postInstall
-    #    '';
-    #    }))
   ];
-
-  #environment.sessionVariables = {
-  #  ALSA_CONFIG_UCM2 = "${pkgs.alsa-ucm-conf}/share/alsa/ucm2";
-  #};
 
   system.stateVersion = "23.11";
 }

@@ -19,34 +19,10 @@
   };
 
   services.tailscale.enable = true;
-
   services.flatpak.enable = true;
-
-  #powerManagement.powertop.enable = true;
-  #services.thermald.enable = true;
-  #services.auto-cpufreq.enable = true;
-  #services.auto-cpufreq.settings = {
-  #  battery = {
-  #    governor = "powersave";
-  #    turbo = "never";
-  #  };
-  #  charger = {
-  #    governor = "performance";
-  #    turbo = "auto";
-  #  };
-  #};
 
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true;
-  #services.blueman.enable = true;
-
-  #programs.hyprland.enable = true;
-  #services.xserver.enable = true;
-  #services.xserver.displayManager.lightdm.enable = true;
-  #services.xserver.displayManager = {
-  #  autoLogin.enable = true;
-  #  autoLogin.user = "leo";
-  #};
 
   services.xserver.enable = true;
   services.displayManager.sddm.enable = true;
@@ -59,7 +35,8 @@
   programs.kdeconnect.enable = true;
 
   i18n.inputMethod = {
-    enabled = "fcitx5";
+    enable = true;
+    type = "fcitx5";
     fcitx5 = {
       addons = with pkgs; [
         fcitx5-mozc
@@ -91,7 +68,7 @@
       source-code-pro
       jetbrains-mono
       ubuntu_font_family
-      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+      nerd-fonts.jetbrains-mono
     ];
     fontconfig = {
       defaultFonts = {

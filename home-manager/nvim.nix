@@ -8,6 +8,8 @@
       stylua
       # Telescope
       ripgrep
+      # lazygit
+      lazygit
     ];
 
     plugins = with pkgs.vimPlugins; [
