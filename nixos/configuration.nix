@@ -1,59 +1,53 @@
-{ inputs
-, outputs
-, lib
-, config
-, pkgs
-, ...
+# This is your system's configuration file.
+# Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
+{
+  inputs,
+  outputs,
+  lib,
+  config,
+  pkgs,
+  ...
 }: {
   imports = [
     ./hardware-configuration.nix
+    ./boot.nix
     ./nix.nix
-    ./services.nix
-    inputs.home-manager.nixosModules.home-manager
+    ./shell.nix
+    ./others.nix
+    ./sshd.nix
+    ./kde.nix
+    ./fonts.nix
+    ./devices.nix
+    ./virt.nix
+    ./pkgs.nix
   ];
 
-  networking.hostName = "hp-nixos";
+  nixpkgs = {
+    overlays = [
+      outputs.overlays.additions
+      outputs.overlays.modifications
+    ];
+    # Configure your nixpkgs instance
+    config = {
+      # Disable if you don't want unfree packages
+      allowUnfree = true;
+    };
+  };
+
+  networking.hostName = "probook-nix";
   networking.networkmanager.enable = true;
   systemd.services.NetworkManager-wait-online.enable = false;
 
   time.timeZone = "Asia/Shanghai";
   i18n.defaultLocale = "en_US.UTF-8";
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.systemd-boot.extraEntries."arch.conf" = ''
-    title Archlinux
-    linux /vmlinuz-linux-lts
-    initrd /initramfs-linux-lts.img
-    options root=UUID=f6215e55-ec45-48d7-b403-df87b39efcfe rw
-  '';
-
-  programs.zsh.enable = true;
-
   users.users = {
     leo = {
       initialPassword = "1";
       isNormalUser = true;
-      shell = pkgs.zsh;
-      extraGroups = [ "wheel" ];
+      extraGroups = ["wheel"];
     };
   };
-  home-manager = {
-    extraSpecialArgs = { inherit inputs outputs; };
-    useGlobalPkgs = true;
-    users = {
-      leo = import ../home-manager/home.nix;
-    };
-  };
-
-  environment.systemPackages = with pkgs; [
-    unzip
-    wget
-    vim
-    git
-    htop
-    patchelf
-    tailscale
-  ];
-
-  system.stateVersion = "23.11";
+  # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
+  system.stateVersion = "23.05";
 }

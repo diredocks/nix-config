@@ -1,69 +1,44 @@
-{ inputs
-, outputs
-, lib
-, config
-, pkgs
-, ...
+{
+  inputs,
+  lib,
+  config,
+  pkgs,
+  ...
 }: {
-  nixpkgs = {
-    overlays = [
-      /*(final: prev: {
-      kdePackages.kwin = prev.kdePackages.kwin.overrideAttrs (previousAttrs: {
-        patches = previousAttrs.patches ++ [
-          ./gesture.patch
-        ];
-      });
-      })*/
-      (final: prev: {
-        kdePackages = prev.kdePackages.overrideScope (kfinal: kprev: {
-          kwin = kprev.kwin.overrideAttrs (previousAttrs: {
-            patches = previousAttrs.patches ++ [
-              ./gesture.patch
-            ];
-          });
-        });
-      })
-    ];
-    config = {
-      allowUnfree = true;
+  nix = let
+    flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
+  in {
+    settings = {
+      # Enable flakes and new 'nix' command
+      experimental-features = "nix-command flakes";
+      # Opinionated: disable global registry
+      flake-registry = "";
+      # Workaround for https://github.com/NixOS/nix/issues/9574
+      nix-path = config.nix.nixPath;
+      # Other stuff
+      auto-optimise-store = true;
+      trusted-users = ["leo"];
+      substituters = [
+        "https://mirror.sjtu.edu.cn/nix-channels/store"
+        "https://mirrors.ustc.edu.cn/nix-channels/store"
+
+        "https://cache.nixos.org"
+      ];
+      trusted-public-keys = [
+        "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+      ];
+      extra-substituters = [
+        "https://attic.alexghr.me/public"
+      ];
+      extra-trusted-public-keys = [
+        "public:5MqPjBBGMCWbo8L8voeQl7HXc5oX+MXZ6BSURfMosIo="
+      ];
     };
+    # Opinionated: disable channels
+    channel.enable = false;
+
+    # Opinionated: make flake registry and nix path match flake inputs
+    registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;
+    nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
   };
-
-  nix.registry = (lib.mapAttrs (_: flake: { inherit flake; })) ((lib.filterAttrs (_: lib.isType "flake")) inputs);
-
-  nix.nixPath = [ "/etc/nix/path" ];
-  environment.etc =
-    lib.mapAttrs'
-      (name: value: {
-        name = "nix/path/${name}";
-        value.source = value.flake;
-      })
-      config.nix.registry;
-
-  nix.settings = {
-    experimental-features = "nix-command flakes";
-    auto-optimise-store = true;
-
-    trusted-users = [ "leo" ];
-    substituters = [
-      "https://mirror.sjtu.edu.cn/nix-channels/store"
-      "https://mirrors.ustc.edu.cn/nix-channels/store"
-
-      "https://cache.nixos.org"
-    ];
-    trusted-public-keys = [
-      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-    ];
-    extra-substituters = [
-      "https://attic.alexghr.me/public"
-    ];
-    extra-trusted-public-keys = [
-      "public:5MqPjBBGMCWbo8L8voeQl7HXc5oX+MXZ6BSURfMosIo="
-    ];
-  };
-
-  systemd.services.nix-daemon.environment = {
-    https_proxy = "http://127.0.0.1:9232";
-  };
-
 }
