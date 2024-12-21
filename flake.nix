@@ -33,13 +33,16 @@
       probook-nix = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
+          # System
           ./nixos/configuration.nix
+          # Home Manager
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.leo = import ./home-manager/home.nix;
           }
+          # alacritty-theme overlay
           ({
             config,
             pkgs,

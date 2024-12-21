@@ -6,7 +6,7 @@
   ...
 }: {
   imports = [
-    ./nvim/nvim.nix
+    ./nvim
     ./zsh.nix
     ./alacritty.nix
     ./vscode.nix

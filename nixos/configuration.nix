@@ -11,15 +11,10 @@
   imports = [
     ./hardware-configuration.nix
     ./boot.nix
-    ./nix.nix
-    ./shell.nix
-    ./others.nix
-    ./sshd.nix
-    ./kde.nix
-    ./fonts.nix
     ./devices.nix
-    ./virt.nix
     ./pkgs.nix
+    ./services
+    ./desktop
   ];
 
   nixpkgs = {
