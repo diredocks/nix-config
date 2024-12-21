@@ -13,4 +13,5 @@
     initrd /initramfs-linux-lts.img
     options root=UUID=f6215e55-ec45-48d7-b403-df87b39efcfe rw
   '';
+  boot.initrd.systemd.enable = true;
 }

@@ -12,5 +12,6 @@
     vim
     htop
     patchelf
+    file
   ];
 }
