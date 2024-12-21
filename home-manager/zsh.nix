@@ -23,7 +23,7 @@
     oh-my-zsh = {
       enable = true;
       theme = "ys";
-      plugins = ["git" "ssh-agent"];
+      plugins = ["git" "ssh-agent" "z"];
       extraConfig = ''
         zstyle :omz:plugins:ssh-agent identities github_key
         zstyle :omz:plugins:ssh-agent lifetime 24h
