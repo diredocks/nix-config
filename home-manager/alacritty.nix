@@ -9,7 +9,7 @@
     enable = true;
     settings = {
       general = {
-        import = [pkgs.alacritty-theme.tokyo_night_storm];
+        import = [ pkgs.alacritty-theme.tokyo_night_storm ];
       };
       window = {
         dimensions = {
@@ -18,9 +18,9 @@
         };
       };
       font = {
-        size = 13;
+        size = 15;
         normal = {
-          family = "JetBrains Mono";
+          family = "ComicShannsMono Nerd Font";
         };
       };
       mouse = {

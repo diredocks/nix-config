@@ -17,6 +17,7 @@
       jetbrains-mono
       ubuntu_font_family
       nerd-fonts.jetbrains-mono
+      nerd-fonts.comic-shanns-mono
     ];
     fontconfig = {
       defaultFonts = {
