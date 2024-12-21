@@ -10,7 +10,6 @@
     shellAliases = {
       neofetch = "fastfetch";
     };
-    initExtra = "eval $(ssh-agent)";
     plugins = [
       {
         name = "fzf-tab";
@@ -24,7 +23,12 @@
     oh-my-zsh = {
       enable = true;
       theme = "ys";
-      plugins = ["git"];
+      plugins = ["git" "ssh-agent"];
+      extraConfig = ''
+        zstyle :omz:plugins:ssh-agent identities github_key
+        zstyle :omz:plugins:ssh-agent lifetime 24h
+        zstyle :omz:plugins:ssh-agent lazy yes
+      '';
     };
   };
 }
