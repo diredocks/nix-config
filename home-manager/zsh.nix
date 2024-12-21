@@ -10,6 +10,7 @@
     shellAliases = {
       neofetch = "fastfetch";
     };
+    initExtra = "eval $(ssh-agent)";
     plugins = [
       {
         name = "fzf-tab";
