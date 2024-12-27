@@ -9,7 +9,7 @@
     enable = true;
     settings = {
       general = {
-        import = [ pkgs.alacritty-theme.tokyo_night_storm ];
+        import = [pkgs.alacritty-theme.tokyo_night_storm];
       };
       window = {
         dimensions = {

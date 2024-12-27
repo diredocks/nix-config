@@ -6,11 +6,11 @@
   ...
 }: {
   imports = [
-    ./nvim
-    ./zsh.nix
-    ./alacritty.nix
-    ./vscode.nix
-    ./pkgs.nix
+    ../../home-manager/nvim
+    ../../home-manager/zsh.nix
+    ../../home-manager/alacritty.nix
+    ../../home-manager/vscode.nix
+    ../../home-manager/pkgs.nix
   ];
 
   nixpkgs = {

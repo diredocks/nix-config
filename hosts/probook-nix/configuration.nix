@@ -9,12 +9,12 @@
   ...
 }: {
   imports = [
-    ./hardware-configuration.nix
-    ./boot.nix
-    ./devices.nix
-    ./pkgs.nix
-    ./services
-    ./desktop
+    ./hardware/hardware-configuration.nix
+    ./hardware/boot.nix
+    ../../nixos/devices.nix
+    ../../nixos/pkgs.nix
+    ../../nixos/services
+    ../../nixos/desktop
   ];
 
   nixpkgs = {
