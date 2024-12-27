@@ -52,6 +52,28 @@
           })
         ];
       };
+      pixelbook-nix = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          # System
+          ./hosts/pixelbook-nix/configuration.nix
+          # Home Manager
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.leo = import ./hosts/pixelbook-nix/home.nix;
+          }
+          # alacritty-theme overlay
+          ({
+            config,
+            pkgs,
+            ...
+          }: {
+            nixpkgs.overlays = [alacritty-theme.overlays.default];
+          })
+        ];
+      };
     };
   };
 }
