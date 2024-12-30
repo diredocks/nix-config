@@ -27,24 +27,18 @@
         # LazyVim
         LazyVim
         bufferline-nvim
-        cmp-buffer
-        cmp-nvim-lsp
-        cmp-path
         cmp_luasnip
         conform-nvim
         dashboard-nvim
-        dressing-nvim
         flash-nvim
         friendly-snippets
         gitsigns-nvim
-        indent-blankline-nvim
         lualine-nvim
         neo-tree-nvim
         neoconf-nvim
         neodev-nvim
         noice-nvim
         nui-nvim
-        nvim-cmp
         nvim-lint
         nvim-lspconfig
         nvim-notify
@@ -57,14 +51,22 @@
         nvim-web-devicons
         persistence-nvim
         plenary-nvim
-        telescope-fzf-native-nvim
-        telescope-nvim
         todo-comments-nvim
         tokyonight-nvim
         trouble-nvim
         vim-illuminate
         vim-startuptime
         which-key-nvim
+        fzf-lua
+        snacks-nvim
+        {
+          name = "lazydev.nvim";
+          path = lazydev-nvim;
+        }
+        {
+          name = "blink.cmp";
+          path = blink-cmp;
+        }
         {
           name = "LuaSnip";
           path = luasnip;
@@ -121,8 +123,6 @@
         spec = {
           { "LazyVim/LazyVim", import = "lazyvim.plugins" },
           -- The following configs are needed for fixing lazyvim on nix
-          -- force enable telescope-fzf-native.nvim
-          { "nvim-telescope/telescope-fzf-native.nvim", enabled = true },
           -- disable mason.nvim, use programs.neovim.extraPackages
           { "williamboman/mason-lspconfig.nvim", enabled = false },
           { "williamboman/mason.nvim", enabled = false },
@@ -130,7 +130,7 @@
           { import = "lazyvim.plugins.extras.lang.go" },
           { import = "lazyvim.plugins.extras.lang.clangd" },
           { import = "lazyvim.plugins.extras.lang.rust" },
-          --{ import = "plugins" },
+          { import = "plugins" },
           -- treesitter handled by xdg.configFile."nvim/parser", put this line at the end of spec to clear ensure_installed
           { "nvim-treesitter/nvim-treesitter",
            opts = function(_, opts)
