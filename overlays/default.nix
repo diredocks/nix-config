@@ -16,34 +16,5 @@
           ];
       });
     });
-    zsh-fzf-tab = prev.zsh-fzf-tab.overrideAttrs (old: {
-      nativeBuildInputs = old.nativeBuildInputs or [] ++ [ prev.autoconf ];
-      configurePhase = ''
-        runHook preConfigure
-
-        pushd modules
-
-        tar -xf ${prev.zsh.src}
-        ln -s $(pwd)/Src/fzftab.c zsh-${prev.zsh.version}/Src/Modules/
-        ln -s $(pwd)/Src/fzftab.mdd zsh-${prev.zsh.version}/Src/Modules/
-
-        pushd zsh-${prev.zsh.version}
-
-        # Apply patches manually
-        ${prev.lib.concatStringsSep "\n" (map (patch: "patch -p1 -i ${patch}") prev.zsh.patches)}
-
-        if [[ ! -f ./configure ]]; then
-          ./Util/preconfig
-        fi
-        if [[ ! -f ./Makefile ]]; then
-          ./configure --disable-gdbm --without-tcsetpgrp
-        fi
-
-        popd
-        popd
-
-        runHook postConfigure
-      '';
-    });
   };
 }
