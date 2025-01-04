@@ -130,6 +130,7 @@
           { import = "lazyvim.plugins.extras.lang.go" },
           { import = "lazyvim.plugins.extras.lang.clangd" },
           { import = "lazyvim.plugins.extras.lang.rust" },
+          { import = "lazyvim.plugins.extras.lang.typescript" },
           { import = "plugins" },
           -- treesitter handled by xdg.configFile."nvim/parser", put this line at the end of spec to clear ensure_installed
           { "nvim-treesitter/nvim-treesitter",
