@@ -29,51 +29,33 @@
     nixosModules = import ./modules/nixos;
     homeManagerModules = import ./modules/home-manager;
 
-    nixosConfigurations = {
-      probook-nix = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
-        modules = [
-          # System
-          ./hosts/probook-nix/configuration.nix
-          # Home Manager
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.leo = import ./hosts/probook-nix/home.nix;
-          }
-          # alacritty-theme overlay
-          ({
-            config,
-            pkgs,
-            ...
-          }: {
-            nixpkgs.overlays = [alacritty-theme.overlays.default];
-          })
-        ];
-      };
-      pixelbook-nix = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
-        modules = [
-          # System
-          ./hosts/pixelbook-nix/configuration.nix
-          # Home Manager
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.leo = import ./hosts/pixelbook-nix/home.nix;
-          }
-          # alacritty-theme overlay
-          ({
-            config,
-            pkgs,
-            ...
-          }: {
-            nixpkgs.overlays = [alacritty-theme.overlays.default];
-          })
-        ];
-      };
+    nixosConfigurations = let
+      makeConfig = host: home:
+        nixpkgs.lib.nixosSystem {
+          specialArgs = {inherit inputs outputs;};
+          modules = [
+            # System configuration
+            ./hosts/${host}/configuration.nix
+            # Home Manager
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.leo = import ./hosts/${host}/${home};
+            }
+            # Alacritty theme overlay
+            ({
+              config,
+              pkgs,
+              ...
+            }: {
+              nixpkgs.overlays = [alacritty-theme.overlays.default];
+            })
+          ];
+        };
+    in {
+      probook-nix = makeConfig "probook-nix" "home.nix";
+      pixelbook-nix = makeConfig "pixelbook-nix" "home.nix";
     };
   };
 }
