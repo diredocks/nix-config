@@ -24,5 +24,6 @@
     firefox
     obsidian
     vlc
+    remmina
   ];
 }
