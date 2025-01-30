@@ -3,10 +3,18 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
-    alacritty-theme.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    alacritty-theme = {
+      url = "github:alexghr/alacritty-theme.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    kwin-gestures = {
+      url = "github:taj-ny/kwin-gestures";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
