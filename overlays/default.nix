@@ -6,15 +6,5 @@
   # This one contains whatever you want to overlay
   # You can change versions, add patches, set compilation flags, anything really.
   # https://nixos.wiki/wiki/Overlays
-  modifications = final: prev: {
-    kdePackages = prev.kdePackages.overrideScope (kfinal: kprev: {
-      kwin = kprev.kwin.overrideAttrs (previousAttrs: {
-        patches =
-          previousAttrs.patches
-          ++ [
-            ./kwin/touchpad_gesture.patch
-          ];
-      });
-    });
-  };
+  modifications = final: prev: {};
 }

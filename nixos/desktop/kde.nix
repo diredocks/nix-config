@@ -27,4 +27,7 @@
       plasma6Support = true;
     };
   };
+  environment.systemPackages = [
+    inputs.kwin-gestures.packages.${pkgs.system}.default
+  ];
 }
