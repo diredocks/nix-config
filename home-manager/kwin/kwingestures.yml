@@ -1,4 +1,6 @@
 touchpad:
+  speed:
+    swipe_threshold: 60
   gestures:
     - type: swipe
       fingers: 3
