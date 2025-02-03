@@ -1,6 +1,6 @@
 touchpad:
   speed:
-    swipe_threshold: 60
+    swipe_threshold: 45
   gestures:
     - type: swipe
       fingers: 3
@@ -50,18 +50,17 @@ touchpad:
     - type: swipe
       direction: left_right
       fingers: 3
-      speed: slow
 
       actions:
         - on: begin
           keyboard: [ +leftalt, tab ]
 
         - on: update
-          interval: -150
+          interval: -120
           keyboard: [ leftshift+tab ]
 
         - on: update
-          interval: 150
+          interval: 120
           keyboard: [ tab ]
 
         - on: end_cancel
