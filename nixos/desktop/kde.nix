@@ -23,8 +23,11 @@
         fcitx5-mozc
         fcitx5-gtk
         fcitx5-chinese-addons
+        fcitx5-rime
+        rime-data
       ];
       plasma6Support = true;
+      waylandFrontend = true;
     };
   };
   environment.systemPackages = [
