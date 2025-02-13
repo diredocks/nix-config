@@ -10,7 +10,7 @@
     ../../home-manager/nvim
     ../../home-manager/zsh.nix
     ../../home-manager/alacritty.nix
-    ../../home-manager/ghostty.nix
+    # ../../home-manager/ghostty.nix
     ../../home-manager/vscode.nix
     ../../home-manager/pkgs.nix
   ];
