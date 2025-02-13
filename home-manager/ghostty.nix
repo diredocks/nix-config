@@ -19,6 +19,8 @@
       window-theme = "dark";
       theme = "tokyonight-storm";
       gtk-single-instance = true;
+      window-padding-x = 0;
+      window-padding-y = 0;
     };
   };
 }
