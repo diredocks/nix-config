@@ -14,12 +14,6 @@
     ../../home-manager/pkgs.nix
   ];
 
-  nixpkgs = {
-    config = {
-      allowUnfree = true;
-    };
-  };
-
   home = {
     username = "leo";
     homeDirectory = "/home/leo";
