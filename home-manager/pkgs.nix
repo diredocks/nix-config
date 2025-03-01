@@ -18,17 +18,9 @@
         "--enable-features=TouchpadOverscrollHistoryNavigation"
       ];
     })
-    fastfetch
     hugo
     wireshark
-    dig
-    unrar
-    localsend
     telegram-desktop
-    gcc
-    ripgrep
-    fd
-    fzf
     firefox
     obsidian
     vlc

@@ -30,6 +30,7 @@ in {
       lazygit
       wl-clipboard # for nvim clipboard support
       fd
+      gcc
     ];
 
     plugins = with pkgs.vimPlugins; [
