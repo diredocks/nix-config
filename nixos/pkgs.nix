@@ -13,5 +13,10 @@
     htop
     patchelf
     file
+    fzf
+    fastfetch
+    fd
+    ripgrep
+    unrar
   ];
 }
