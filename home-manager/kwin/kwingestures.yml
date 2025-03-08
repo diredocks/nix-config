@@ -8,19 +8,18 @@ touchpad:
       actions:
         - on: begin
           plasma_shortcut: kwin,Window Maximize
-          block_other: true # Prevent the minimize window action from triggering during the same gesture
           conditions:
             - window_state: [ maximized ]
         # Minimize window if not fullscreen and not maximized
         - on: begin
-          plasma_shortcut: kwin,Window Minimize
-          conditions:
-          - negate: [ window_state ]
-            window_state: [ fullscreen, maximized ]
-        - on: begin
           plasma_shortcut: kwin,Window Fullscreen
           conditions:
             - window_state: [ fullscreen ]
+        - on: begin
+          plasma_shortcut: kwin,Window Minimize
+          conditions:
+            - negate: [ window_state ]
+              window_state: [ fullscreen, maximized ]
 
     # Maximize
     - type: swipe
