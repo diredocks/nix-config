@@ -30,7 +30,7 @@
       waylandFrontend = true;
     };
   };
-  environment.systemPackages = [
+  environment.systemPackages = with pkgs; [
     inputs.kwin-gestures.packages.${pkgs.system}.default
   ];
 }
