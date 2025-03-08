@@ -22,6 +22,7 @@
     wireshark
     telegram-desktop
     firefox
+    librewolf
     obsidian
     vlc
     remmina
