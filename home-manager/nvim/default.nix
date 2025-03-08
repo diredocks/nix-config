@@ -39,11 +39,13 @@ in {
 
     extraLuaConfig = let
       plugins = with pkgs.vimPlugins; [
-        # LazyVim
-        {
+        LazyVim
+        /*
+          {
           name = "LazyVim";
           path = LazyVimNG;
         }
+        */
         bufferline-nvim
         cmp_luasnip
         conform-nvim
