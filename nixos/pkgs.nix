@@ -18,5 +18,6 @@
     fd
     ripgrep
     unrar
+    bat
   ];
 }
