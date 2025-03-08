@@ -19,20 +19,21 @@
       auto-optimise-store = true;
       trusted-users = ["leo"];
       substituters = [
-        "https://mirror.sjtu.edu.cn/nix-channels/store"
-        "https://mirrors.ustc.edu.cn/nix-channels/store"
-
         "https://cache.nixos.org"
+        "https://mirrors.cernet.edu.cn/nix-channels/store"
+        "https://mirror.sjtu.edu.cn/nix-channels/store"
       ];
       trusted-public-keys = [
         "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
       ];
+      /*
       extra-substituters = [
         "https://attic.alexghr.me/public"
       ];
       extra-trusted-public-keys = [
         "public:5MqPjBBGMCWbo8L8voeQl7HXc5oX+MXZ6BSURfMosIo="
       ];
+      */
     };
     # Opinionated: disable channels
     channel.enable = false;
