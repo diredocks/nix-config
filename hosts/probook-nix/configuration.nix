@@ -11,6 +11,7 @@
   imports = [
     ./hardware/hardware-configuration.nix
     ./hardware/boot.nix
+    ./hardware/graphics-acceleration.nix
     ../../nixos/devices.nix
     ../../nixos/pkgs.nix
     ../../nixos/services
