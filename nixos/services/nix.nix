@@ -19,9 +19,9 @@
       auto-optimise-store = true;
       trusted-users = ["leo"];
       substituters = [
+        "https://mirrors.sjtug.sjtu.edu.cn/nix-channels/store"
         "https://cache.nixos.org"
         "https://mirrors.cernet.edu.cn/nix-channels/store"
-        "https://mirror.sjtu.edu.cn/nix-channels/store"
       ];
       trusted-public-keys = [
         "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
