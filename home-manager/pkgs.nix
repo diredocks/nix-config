@@ -26,5 +26,6 @@
     obsidian
     vlc
     remmina
+    code-cursor
   ];
 }
