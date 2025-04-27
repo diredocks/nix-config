@@ -18,14 +18,16 @@
       ubuntu_font_family
       nerd-fonts.jetbrains-mono
       nerd-fonts.comic-shanns-mono
+      adwaita-fonts
     ];
     fontconfig = {
       defaultFonts = {
         emoji = ["Noto Color Emoji"];
         monospace = ["Noto Sans Mono CJK SC" "Sarasa Mono SC" "DejaVu Sans Mono"];
-        sansSerif = ["Ubuntu" "Noto Sans CJK SC" "Source Han Sans SC" "DejaVu Sans"];
+        sansSerif = ["Adwaita Sans" "Noto Sans CJK SC" "Source Han Sans SC" "DejaVu Sans"];
         serif = ["Noto Serif CJK SC" "Source Han Serif SC" "DejaVu Serif"];
       };
+      useEmbeddedBitmaps = true;
     };
   };
 }
