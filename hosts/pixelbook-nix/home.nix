@@ -6,12 +6,12 @@
   ...
 }: {
   imports = [
-    ../../home-manager/kwin
     ../../home-manager/nvim
     ../../home-manager/zsh.nix
     ../../home-manager/alacritty.nix
     ../../home-manager/vscode.nix
     ../../home-manager/pkgs.nix
+    ../../home-manager/gtk.nix
   ];
 
   home = {
