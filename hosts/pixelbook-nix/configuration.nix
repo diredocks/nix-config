@@ -16,7 +16,8 @@
     ../../nixos/devices.nix
     ../../nixos/pkgs.nix
     ../../nixos/services
-    ../../nixos/desktop
+    ../../nixos/desktop/gnome.nix
+    ../../nixos/desktop/fonts.nix
   ];
 
   nixpkgs = {

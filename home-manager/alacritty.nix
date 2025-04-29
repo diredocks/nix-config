@@ -12,6 +12,7 @@
         import = [pkgs.alacritty-theme.tokyo_night_storm];
       };
       window = {
+        decorations_theme_variant = "dark";
         dimensions = {
           columns = 115;
           lines = 35;
