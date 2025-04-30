@@ -6,7 +6,7 @@
   pkgs,
   ...
 }: {
-services.xserver = {
+  services.xserver = {
     enable = true;
     displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
@@ -37,6 +37,9 @@ services.xserver = {
     gnome-tweaks
     gnomeExtensions.kimpanel
   ];
+  environment.sessionVariables = {
+    XCURSOR_THEME = "Adwaita";
+  };
   i18n.inputMethod = {
     enable = true;
     type = "fcitx5";
