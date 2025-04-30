@@ -13,6 +13,7 @@
     ./hardware/hardware-configuration.nix
     ./hardware/audio.nix
     ./hardware/keyboard.nix
+    ./hardware/hardware-acc-gpu.nix
     ../../nixos/devices.nix
     ../../nixos/pkgs.nix
     ../../nixos/services
