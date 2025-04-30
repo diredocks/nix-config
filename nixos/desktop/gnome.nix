@@ -36,6 +36,7 @@
   environment.systemPackages = with pkgs; [
     gnome-tweaks
     gnomeExtensions.kimpanel
+    gnomeExtensions.clipboard-indicator
   ];
   environment.sessionVariables = {
     XCURSOR_THEME = "Adwaita";
