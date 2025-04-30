@@ -40,6 +40,10 @@
   environment.sessionVariables = {
     XCURSOR_THEME = "Adwaita";
   };
+  programs.nautilus-open-any-terminal = {
+    enable = true;
+    terminal = "alacritty";
+  };
   i18n.inputMethod = {
     enable = true;
     type = "fcitx5";
