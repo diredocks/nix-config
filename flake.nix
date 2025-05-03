@@ -58,14 +58,6 @@
               home-manager.useUserPackages = true;
               home-manager.users.leo = import ./hosts/${host}/${home};
             }
-            # Alacritty theme overlay
-            ({
-              config,
-              pkgs,
-              ...
-            }: {
-              nixpkgs.overlays = [alacritty-theme.overlays.default];
-            })
             # agenix
             agenix.nixosModules.default
             ({pkgs, ...}: {

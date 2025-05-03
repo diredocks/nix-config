@@ -24,6 +24,7 @@
     overlays = [
       outputs.overlays.additions
       outputs.overlays.modifications
+      inputs.alacritty-theme.overlays.default
     ];
     # Configure your nixpkgs instance
     config = {
