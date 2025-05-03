@@ -68,6 +68,7 @@
     in {
       probook-nix = makeConfig "probook-nix" "home.nix";
       pixelbook-nix = makeConfig "pixelbook-nix" "home.nix";
+      claw-jp = makeConfig "claw-jp" "home.nix";
     };
   };
 }
