@@ -21,6 +21,10 @@
       inputs.home-manager.follows = "home-manager";
       inputs.darwin.follows = "";
     };
+    disko = {
+      url = "github:nix-community/disko?shallow=1";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -45,30 +49,57 @@
     homeManagerModules = import ./modules/home-manager;
 
     nixosConfigurations = let
-      makeConfig = host: home:
+      mkModules = enabled: mods:
+        if enabled
+        then mods
+        else [];
+      makeConfig = {
+        host,
+        home,
+        withDisko ? false,
+        withHomeManager ? true,
+        withAge ? true,
+      }:
         nixpkgs.lib.nixosSystem {
           specialArgs = {inherit inputs outputs;};
-          modules = [
-            # System configuration
-            ./hosts/${host}/configuration.nix
-            # Home Manager
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.leo = import ./hosts/${host}/${home};
-            }
-            # agenix
-            agenix.nixosModules.default
-            ({pkgs, ...}: {
-              environment.systemPackages = [agenix.packages.${pkgs.system}.default];
-            })
-          ];
+          modules =
+            [
+              ./hosts/${host}/configuration.nix
+            ]
+            ++ mkModules withDisko [inputs.disko.nixosModules.disko]
+            ++ mkModules withHomeManager [
+              inputs.home-manager.nixosModules.home-manager
+              {
+                home-manager.useGlobalPkgs = true;
+                home-manager.useUserPackages = true;
+                home-manager.users.leo = import ./hosts/${host}/${home};
+              }
+            ]
+            ++ mkModules withAge [
+              inputs.agenix.nixosModules.default
+              ({pkgs, ...}: {
+                environment.systemPackages = [inputs.agenix.packages.${pkgs.system}.default];
+              })
+            ];
         };
     in {
-      probook-nix = makeConfig "probook-nix" "home.nix";
-      pixelbook-nix = makeConfig "pixelbook-nix" "home.nix";
-      claw-jp = makeConfig "claw-jp" "home.nix";
+      probook-nix = makeConfig {
+        host = "probook-nix";
+        home = "home.nix";
+      };
+      pixelbook-nix = makeConfig {
+        host = "pixelbook-nix";
+        home = "home.nix";
+      };
+      claw-jp = makeConfig {
+        host = "claw-jp";
+        home = "home.nix";
+        withDisko = true;
+      };
+    };
+
+    packages.x86_64-linux = {
+      image = self.nixosConfigurations.claw-jp.config.system.build.diskoImages;
     };
   };
 }

@@ -10,6 +10,7 @@
 }: {
   imports = [
     ./hardware/boot.nix
+    ./hardware/disko.nix
     ../../modules/nixos/services/nix.nix
     ../../modules/nixos/services/sshd.nix
     ../../modules/nixos/services/pkgs.nix
