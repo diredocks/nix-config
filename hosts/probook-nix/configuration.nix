@@ -15,6 +15,9 @@
     ../../modules/nixos/pkgs.nix
     ../../modules/nixos/services
     ../../modules/nixos/desktop
+    {
+      age.secrets.test.file = ../../secrets/test.json.age;
+    }
   ];
 
   nixpkgs = {
