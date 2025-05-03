@@ -47,7 +47,8 @@
           import ./pkgs nixpkgs.legacyPackages.${system}
       )
       // {
-        image = self.nixosConfigurations.claw-jp.config.system.build.diskoImages;
+        # build these images with `nix build .\#packages.xxx`
+        claw-jp-image = self.nixosConfigurations.claw-jp.config.system.build.diskoImages;
       };
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
