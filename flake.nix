@@ -2,18 +2,24 @@
   description = "Diredocks' NixOS";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable?shallow=1";
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager?shallow=1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     alacritty-theme = {
-      url = "github:alexghr/alacritty-theme.nix";
+      url = "github:alexghr/alacritty-theme.nix?shallow=1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     kwin-gestures = {
-      url = "github:taj-ny/kwin-gestures";
+      url = "github:taj-ny/kwin-gestures?shallow=1";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+    agenix = {
+      url = "github:ryantm/agenix?shallow=1";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+      inputs.darwin.follows = "";
     };
   };
 
@@ -22,6 +28,7 @@
     nixpkgs,
     home-manager,
     alacritty-theme,
+    agenix,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -58,6 +65,11 @@
               ...
             }: {
               nixpkgs.overlays = [alacritty-theme.overlays.default];
+            })
+            # agenix
+            agenix.nixosModules.default
+            ({pkgs, ...}: {
+              environment.systemPackages = [agenix.packages.${pkgs.system}.default];
             })
           ];
         };
