@@ -6,7 +6,11 @@
   ...
 }
 : {
-  boot.loader.systemd-boot.enable = true;
+  boot.loader.grub = {
+    enable = !config.boot.isContainer;
+    default = "saved";
+    devices = ["/dev/vda"];
+  };
   boot.initrd = {
     compressor = "zstd";
     compressorArgs = ["-19" "-T0"];

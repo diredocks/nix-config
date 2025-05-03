@@ -6,7 +6,6 @@
   ...
 }: {
   imports = [
-    ../../modules/home-manager/pkgs.nix
     ../../modules/home-manager/zsh.nix
   ];
 
