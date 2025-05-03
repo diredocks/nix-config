@@ -14,17 +14,18 @@
     ./hardware/audio.nix
     ./hardware/keyboard.nix
     ./hardware/hardware-acc-gpu.nix
-    ../../nixos/devices.nix
-    ../../nixos/pkgs.nix
-    ../../nixos/services
-    ../../nixos/desktop/gnome.nix
-    ../../nixos/desktop/fonts.nix
+    ../../modules/nixos/devices.nix
+    ../../modules/nixos/pkgs.nix
+    ../../modules/nixos/services
+    ../../modules/nixos/desktop/gnome.nix
+    ../../modules/nixos/desktop/fonts.nix
   ];
 
   nixpkgs = {
     overlays = [
       outputs.overlays.additions
       outputs.overlays.modifications
+      inputs.alacritty-theme.overlays.default
     ];
     # Configure your nixpkgs instance
     config = {
