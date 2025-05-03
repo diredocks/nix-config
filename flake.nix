@@ -41,7 +41,14 @@
     ];
     forAllSystems = nixpkgs.lib.genAttrs systems;
   in {
-    packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
+    packages =
+      forAllSystems (
+        system:
+          import ./pkgs nixpkgs.legacyPackages.${system}
+      )
+      // {
+        image = self.nixosConfigurations.claw-jp.config.system.build.diskoImages;
+      };
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
     overlays = import ./overlays {inherit inputs;};
@@ -96,10 +103,6 @@
         home = "home.nix";
         withDisko = true;
       };
-    };
-
-    packages.x86_64-linux = {
-      image = self.nixosConfigurations.claw-jp.config.system.build.diskoImages;
     };
   };
 }

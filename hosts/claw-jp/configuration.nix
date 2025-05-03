@@ -11,9 +11,10 @@
   imports = [
     ./hardware/boot.nix
     ./hardware/disko.nix
+    ./hardware/hardware-configuration.nix
+    ../../modules/nixos/pkgs.nix
     ../../modules/nixos/services/nix.nix
     ../../modules/nixos/services/sshd.nix
-    ../../modules/nixos/services/pkgs.nix
     ../../modules/nixos/services/shell.nix
   ];
 
