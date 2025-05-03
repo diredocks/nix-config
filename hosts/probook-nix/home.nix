@@ -6,13 +6,13 @@
   ...
 }: {
   imports = [
-    ../../home-manager/kwin
-    ../../home-manager/nvim
-    ../../home-manager/zsh.nix
-    ../../home-manager/alacritty.nix
-    # ../../home-manager/ghostty.nix
-    ../../home-manager/vscode.nix
-    ../../home-manager/pkgs.nix
+    ../../modules/home-manager/kwin
+    ../../modules/home-manager/nvim
+    ../../modules/home-manager/zsh.nix
+    ../../modules/home-manager/alacritty.nix
+    # ../../modules/home-manager/ghostty.nix
+    ../../modules/home-manager/vscode.nix
+    ../../modules/home-manager/pkgs.nix
   ];
 
   home = {

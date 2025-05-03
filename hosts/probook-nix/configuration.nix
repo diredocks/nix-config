@@ -11,10 +11,10 @@
   imports = [
     ./hardware/hardware-configuration.nix
     ./hardware/boot.nix
-    ../../nixos/devices.nix
-    ../../nixos/pkgs.nix
-    ../../nixos/services
-    ../../nixos/desktop
+    ../../modules/nixos/devices.nix
+    ../../modules/nixos/pkgs.nix
+    ../../modules/nixos/services
+    ../../modules/nixos/desktop
   ];
 
   nixpkgs = {
