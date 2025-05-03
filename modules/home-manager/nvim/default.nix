@@ -3,21 +3,7 @@
   lib,
   pkgs,
   ...
-}: let
-  LazyVimNG = pkgs.vimUtils.buildVimPlugin {
-    pname = "LazyVimNG";
-    version = "2025-02-15";
-    src = pkgs.fetchFromGitHub {
-      owner = "LazyVim";
-      repo = "LazyVim";
-      rev = "3f034d0a7f58031123300309f2efd3bb0356ee21";
-      sha256 = "sha256-1q8c2M/FZxYg4TiXe9PK6JdR4wKBgPbxRt40biIEBaY=";
-    };
-    doCheck = false;
-    meta.homepage = "https://github.com/LazyVim/LazyVim/";
-    meta.hydraPlatforms = [];
-  };
-in {
+}: {
   programs.neovim = {
     enable = true;
     extraPackages = with pkgs; [
@@ -40,12 +26,6 @@ in {
     extraLuaConfig = let
       plugins = with pkgs.vimPlugins; [
         LazyVim
-        /*
-          {
-          name = "LazyVim";
-          path = LazyVimNG;
-        }
-        */
         bufferline-nvim
         cmp_luasnip
         conform-nvim
