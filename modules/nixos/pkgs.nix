@@ -20,4 +20,9 @@
     unrar
     bat
   ];
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+    };
+  };
 }
