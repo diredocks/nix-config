@@ -50,10 +50,7 @@
       ];
     };
   };
-  services.openssh.permitRootLogin = "yes";
-  nix.settings.substituters = [
-    "https://cache.nixos.org"
-  ]; # We at Japan lol
+  services.openssh.PermitRootLogin = "yes";
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "24.11";
