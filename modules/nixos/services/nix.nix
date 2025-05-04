@@ -18,7 +18,7 @@
       # Other stuff
       auto-optimise-store = true;
       trusted-users = ["leo"];
-      substituters = lib.mkDefault [
+      substituters = [
         "https://mirrors.sjtug.sjtu.edu.cn/nix-channels/store"
         "https://cache.nixos.org"
         "https://mirrors.cernet.edu.cn/nix-channels/store"
