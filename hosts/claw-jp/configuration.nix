@@ -18,6 +18,9 @@
     ../../modules/nixos/services/nix.nix
     ../../modules/nixos/services/sshd.nix
     ../../modules/nixos/services/shell.nix
+    {
+      age.secrets."xray_claw-jp.json".file = ../../secrets/xray_claw-jp.json;
+    }
   ];
 
   nixpkgs = {
@@ -51,6 +54,15 @@
     };
   };
   services.openssh.settings.PermitRootLogin = "yes";
+
+  services.tailscale.enable = true;
+  environment.systemPackages = with pkgs; [
+    tailscale
+  ];
+  services.xray = {
+    enable = true;
+    settingsFile = config.age.secrets."xray_claw-jp.json".path;
+  };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "24.11";
