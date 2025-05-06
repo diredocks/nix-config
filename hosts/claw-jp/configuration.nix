@@ -7,7 +7,9 @@
   config,
   pkgs,
   ...
-}: {
+}: let
+  sshKeys = import ../../secrets/ssh-keys-pub.nix;
+in {
   imports = [
     "${inputs.nixpkgs}/nixos/modules/profiles/headless.nix"
     "${inputs.nixpkgs}/nixos/modules/profiles/minimal.nix"
@@ -44,12 +46,12 @@
       isNormalUser = true;
       extraGroups = ["wheel"];
       openssh.authorizedKeys.keys = [
-        "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDvNNmgJ5neYYp6dST9dzw1wttCnhc9VQ5Nls2DUidSZ/DzSGy0/eCqX6oj9B78YugS6xRmovRpvKyY4ihi76R7aLrj50jgRd+8MFMvCtac/QaOjw4/LXPWuY0/OW118NS995X6og/6SQALsQkrgnjUA6IFmt1Zb6ZbQNg7pUGg/3KIMuLXJWWlCAtnB7SfWdY4PwMZg6ftLrzmS4nDJp58ygRkgnhbaGKWC384n1sgsepq1OyGS83GQAd636I/wl2jl3nnEfxfyWiTpxQ//zoTpCZ4lAEiRa9fCumnnPnM7Co9DEofrFgXa3A/bEkHz2sM4TWM42m/6kk5A0v/Oy/eTVKNAzVaHAC4Ai6pwwnK98ETWf6fZ7YoEVbmEmTdPiFkhlOIF7On54OdTPz6c6QDilMb6ncWJS6mP7NK2/ffNaU7d+ttRxxGvO+h5NywN3/+ykP7erGT4mHZljecHKDnPILHTx7sVRNox/uJ0RZDHzkLPX1nB3uwKyg/zL1HTRU= leo@hp-laptop"
+        sshKeys.users.leo_probook-nix
       ];
     };
     root = {
       openssh.authorizedKeys.keys = [
-        "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDvNNmgJ5neYYp6dST9dzw1wttCnhc9VQ5Nls2DUidSZ/DzSGy0/eCqX6oj9B78YugS6xRmovRpvKyY4ihi76R7aLrj50jgRd+8MFMvCtac/QaOjw4/LXPWuY0/OW118NS995X6og/6SQALsQkrgnjUA6IFmt1Zb6ZbQNg7pUGg/3KIMuLXJWWlCAtnB7SfWdY4PwMZg6ftLrzmS4nDJp58ygRkgnhbaGKWC384n1sgsepq1OyGS83GQAd636I/wl2jl3nnEfxfyWiTpxQ//zoTpCZ4lAEiRa9fCumnnPnM7Co9DEofrFgXa3A/bEkHz2sM4TWM42m/6kk5A0v/Oy/eTVKNAzVaHAC4Ai6pwwnK98ETWf6fZ7YoEVbmEmTdPiFkhlOIF7On54OdTPz6c6QDilMb6ncWJS6mP7NK2/ffNaU7d+ttRxxGvO+h5NywN3/+ykP7erGT4mHZljecHKDnPILHTx7sVRNox/uJ0RZDHzkLPX1nB3uwKyg/zL1HTRU= leo@hp-laptop"
+        sshKeys.users.leo_probook-nix
       ];
     };
   };
