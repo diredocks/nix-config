@@ -17,5 +17,15 @@
           })
         ];
     });
+    xray = prev.xray.overrideAttrs (old: rec {
+      version = "25.4.30";
+      src = prev.fetchFromGitHub {
+        owner = "XTLS";
+        repo = "Xray-core";
+        rev = "v${version}";
+        hash = "sha256-qhZgf+HQXfmWNnwjgDZwcs1WR77HoqRXd4VZEwFKPWs=";
+      };
+      vendorHash = "sha256-4kAU+8YXrJOu1wyiuFuPWT0dHI3WzlXY9s7NKyI9r5U=";
+    });
   };
 }
