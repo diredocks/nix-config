@@ -58,6 +58,7 @@
   services.tailscale.enable = true;
   environment.systemPackages = with pkgs; [
     tailscale
+    xray # cli
   ];
   services.xray = {
     enable = true;
