@@ -63,6 +63,8 @@
     enable = true;
     settingsFile = config.age.secrets."xray_claw-jp.json".path;
   };
+  # reload xray when config changed
+  systemd.services.xray.reloadTrigger = ["${config.age.secrets."xray_claw-jp.json".file}"];
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "24.11";
