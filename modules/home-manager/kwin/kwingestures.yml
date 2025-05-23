@@ -3,64 +3,74 @@ touchpad:
     swipe_threshold: 45
   gestures:
     - type: swipe
-      fingers: 3
+      conditions:
+        - $fingers == 3
       direction: down
       actions:
         - on: begin
           plasma_shortcut: kwin,Window Maximize
           conditions:
-            - window_state: [ maximized ]
-        # Minimize window if not fullscreen and not maximized
+            - window_state:
+                - maximized
         - on: begin
           plasma_shortcut: kwin,Window Fullscreen
           conditions:
-            - window_state: [ fullscreen ]
+            - window_state:
+                - fullscreen
         - on: begin
           plasma_shortcut: kwin,Window Minimize
           conditions:
-            - negate: [ window_state ]
-              window_state: [ fullscreen, maximized ]
-
-    # Maximize
+            - negate:
+                - window_state
+              window_state:
+                - fullscreen
+                - maximized
     - type: swipe
-      fingers: 3
+      conditions:
+        - $fingers == 3
       direction: up
       actions:
-        # Maximize window if not already maximized
         - on: begin
           plasma_shortcut: kwin,Window Maximize
           conditions:
-            - negate: [ window_state ]
-              window_state: [ maximized ]
-        # Fullscreen window if already maximized
+            - negate:
+                - window_state
+              window_state:
+                - maximized
         - on: begin
           plasma_shortcut: kwin,Window Fullscreen
           conditions:
-            - window_state: [ maximized, fullscreen ]
-
+            - window_state:
+                - maximized
+                - fullscreen
     - type: pinch
-      fingers: 3
+      conditions:
+        - $fingers == 3
       direction: in
       actions:
         - on: begin
           plasma_shortcut: kwin,Window Close
-
-    # Window switching
     - type: swipe
       direction: left_right
-      fingers: 3
-
+      conditions:
+        - $fingers == 3
       actions:
         - on: begin
-          keyboard: [ +leftalt, tab ]
-
+          input:
+            - keyboard:
+                - +leftalt
+                - tab
         - on: update
           interval: -120
-          keyboard: [ leftshift+tab ]
-
+          input:
+            - keyboard:
+                - leftshift+tab
         - on: update
           interval: 120
-          keyboard: [ tab ]
-
+          input:
+            - keyboard:
+                - tab
         - on: end_cancel
-          keyboard: [ -leftalt ]
+          input:
+            - keyboard:
+                - -leftalt
