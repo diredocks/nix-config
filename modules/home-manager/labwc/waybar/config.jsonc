@@ -1,0 +1,27 @@
+{
+  "modules-right":["network", "battery", "backlight", "pulseaudio", "clock"],
+  "modules-left":["tray", "wlr/taskbar"],
+  "height":24,
+  "padding":10,
+  "position":"top",
+  "justify":"center",
+  "battery":{
+    "format":"B {capacity}%"
+  },
+  "backlight":{
+    "format":"L {percent}%"
+  },
+  "pulseaudio":{
+    "format":"A {volume}%"
+  },
+  "clock":{
+    "format": "{:%m/%d %H:%M}",
+    "tooltip":true,
+    "tooltip-format":"{:%Y-%m-%d}"
+  },
+  "wlr/taskbar":{
+    "format":"{name}",
+    "icon-size":0,
+    "on-click":"minimize-raise"
+  }
+}

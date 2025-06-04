@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+
+<labwc_config>
+
+  <core>
+    <gap>10</gap>
+    <decoration>server</decoration>
+    <adaptiveSync>yes</adaptiveSync>
+    <reuseOutputMode>yes</reuseOutputMode>
+  </core>
+
+  <focus>
+    <followMouse>yes</followMouse>
+  </focus>
+
+  <desktops number="4"></desktops>
+
+  <theme>
+    <name>Umbra</name>
+    <titlebar>
+      <showTitle>yes</showTitle>
+      <layout>:iconify,max,close</layout>
+    </titlebar>
+    <cornerRadius>0</cornerRadius>
+    <font name="ComicShannsMono Nerd Font" size="10" />
+    <dropShadows>yes</dropShadows>
+  </theme>
+
+  <keyboard>
+    <default />
+
+    <keybind key="W-Return">
+      <action name="Execute" command="alacritty" />
+    </keybind>
+    <keybind key="W-d">
+      <action name="ShowMenu" menu="client-menu"/>
+    </keybind>
+    <keybind key="A-Space">
+      <action name="Execute" command="bemenu-run" />
+    </keybind>
+
+    <keybind key="W-S-q">
+      <action name="Close" />
+    </keybind>
+
+    <keybind key="W-Up">
+      <action name="ToggleFullscreen" />
+    </keybind>
+    <keybind key="W-Down">
+      <action name="ToggleFullscreen" />
+    </keybind>
+
+    <keybind key="W-Left">
+      <action name="ToggleSnapToEdge" direction="left" />
+    </keybind>
+    <keybind key="W-Right">
+      <action name="ToggleSnapToEdge" direction="right" />
+    </keybind>
+
+    <keybind key="W-S-Left">
+      <action name="GoToDesktop" to="left" wrap="yes" />
+    </keybind>
+    <keybind key="W-S-Right">
+      <action name="GoToDesktop" to="right" wrap="yes" />
+    </keybind>
+
+    <keybind key="W-1">
+      <action name="GoToDesktop" to="1" wrap="yes" />
+    </keybind>
+    <keybind key="W-2">
+      <action name="GoToDesktop" to="2" wrap="yes" />
+    </keybind>
+    <keybind key="W-3">
+      <action name="GoToDesktop" to="3" wrap="yes" />
+    </keybind>
+    <keybind key="W-4">
+      <action name="GoToDesktop" to="4" wrap="yes" />
+    </keybind>
+  </keyboard>
+
+  <mouse>
+    <default />
+    <context name="Root">
+      <mousebind button="Right" action="Press">
+        <action name="ShowMenu" menu="some-custom-menu" />
+      </mousebind>
+    </context>
+  </mouse>
+
+  <libinput>
+    <device category="touchpad">
+      <naturalScroll>yes</naturalScroll>
+    </device>
+  </libinput>
+
+  <windowSwitcher show="yes" preview="yes" outlines="no" allWorkspaces="no">
+  </windowSwitcher>
+
+</labwc_config>

@@ -17,7 +17,7 @@
     ../../modules/nixos/devices.nix
     ../../modules/nixos/pkgs.nix
     ../../modules/nixos/services
-    ../../modules/nixos/desktop/gnome.nix
+    ../../modules/nixos/desktop/labwc.nix
     ../../modules/nixos/desktop/fonts.nix
   ];
 
@@ -40,7 +40,7 @@
     leo = {
       initialPassword = "1";
       isNormalUser = true;
-      extraGroups = ["wheel"];
+      extraGroups = ["wheel" "input"];
     };
   };
 

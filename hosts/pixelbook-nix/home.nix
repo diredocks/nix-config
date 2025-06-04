@@ -7,6 +7,7 @@
 }: {
   imports = [
     ../../modules/home-manager/nvim
+    ../../modules/home-manager/labwc
     ../../modules/home-manager/zsh.nix
     ../../modules/home-manager/alacritty.nix
     ../../modules/home-manager/vscode.nix
@@ -21,6 +22,8 @@
 
   programs.home-manager.enable = true;
   programs.git.enable = true;
+
+  programs.alacritty.settings.font.size = lib.mkForce 12;
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";

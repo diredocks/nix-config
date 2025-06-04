@@ -1,0 +1,32 @@
+* {
+  border: none;
+  border-radius: 0;
+  font-family: ComicShannsMono Nerd Font;
+  min-height: 0;
+}
+
+#waybar {
+  background-color: #f6f7f1;
+  color: #947e7b;
+}
+
+.module {
+  padding: 0 10px;
+}
+.module:hover {
+  background-color: #b8b7b8;
+  color: #f6f7f1;
+}
+
+#taskbar:hover {
+  background-color: #f6f7f1;
+  color: #947e7b;
+}
+#taskbar button {
+  padding: 0 10px;
+  color: #947e7b;
+  font-weight: normal;
+}
+#taskbar button.active {
+  font-weight: bold;
+}
