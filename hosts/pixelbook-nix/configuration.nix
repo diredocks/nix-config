@@ -46,6 +46,8 @@
 
   boot.kernelPackages = pkgs.linuxPackages_6_12;
 
+  services.power-profiles-daemon.enable = true;
+
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "24.11";
 }

@@ -1,5 +1,5 @@
 {
-  "modules-right":["network", "battery", "backlight", "pulseaudio", "clock"],
+  "modules-right":["network", "power-profiles-daemon", "battery", "backlight", "pulseaudio", "clock"],
   "modules-left":["tray", "wlr/taskbar"],
   "height":24,
   "padding":10,
@@ -23,5 +23,8 @@
     "format":"{name}",
     "icon-size":0,
     "on-click":"minimize-raise"
+  },
+  "power-profiles-daemon": {
+    "format": "{profile}"
   }
 }
