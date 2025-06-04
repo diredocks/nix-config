@@ -17,7 +17,6 @@
     xdotool
     libinput-gestures
     adwaita-icon-theme
-    comixcursors.Opaque_White
   ];
   i18n.inputMethod = {
     enable = true;

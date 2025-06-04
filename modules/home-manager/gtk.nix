@@ -15,5 +15,9 @@
       name = "MoreWaita";
       package = pkgs.morewaita-icon-theme;
     };
+    cursorTheme = {
+      name = "ComixCursors-Opaque-White";
+      package = pkgs.comixcursors.Opaque_White;
+    };
   };
 }
