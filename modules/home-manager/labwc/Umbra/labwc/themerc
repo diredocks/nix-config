@@ -26,6 +26,8 @@ window.inactive.title.bg.color: #f1f2ec
 window.inactive.label.text.color: #b4b2b3
 window.label.text.justify: left
 window.titlebar.padding.width: 10
+window.active.shadow.size: 10
+window.inactive.shadow.size: 8
 
 !! Titlebar buttons
 window.*.button.*.bg: parentrelative
