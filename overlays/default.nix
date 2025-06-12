@@ -27,5 +27,16 @@
       };
       vendorHash = "sha256-4kAU+8YXrJOu1wyiuFuPWT0dHI3WzlXY9s7NKyI9r5U=";
     });
+    labwc = prev.labwc.overrideAttrs (old: {
+      src = prev.fetchFromGitHub {
+        owner = "labwc";
+        repo = "labwc";
+        rev = "d7f1b021b36f4221be8e6654d86db86b1b4250f2";
+        hash = "sha256-sVj6k5Y9tPYOP1GKSz837qNxEumTrzV/wYrUI58jd9g=";
+      };
+      buildInputs =
+        (old.buildInputs or [])
+        ++ [prev.wlroots_0_19];
+    });
   };
 }

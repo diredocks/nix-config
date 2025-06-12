@@ -24,6 +24,7 @@
     <cornerRadius>0</cornerRadius>
     <font name="ComicShannsMono Nerd Font" size="10" />
     <dropShadows>yes</dropShadows>
+    <dropShadowsOnTiled>yes</dropShadowsOnTiled>
   </theme>
 
   <keyboard>
@@ -90,6 +91,7 @@
   <libinput>
     <device category="touchpad">
       <naturalScroll>yes</naturalScroll>
+      <dragLock>no</dragLock>
     </device>
   </libinput>
 

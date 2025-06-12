@@ -3,7 +3,7 @@
   "modules-left":["tray", "wlr/taskbar"],
   "height":24,
   "padding":10,
-  "position":"top",
+  "position":"bottom",
   "justify":"center",
   "battery":{
     "format":"B {capacity}%"
