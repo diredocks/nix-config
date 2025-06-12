@@ -19,6 +19,7 @@
     ripgrep
     unrar
     bat
+    just
   ];
   nixpkgs = {
     config = {
