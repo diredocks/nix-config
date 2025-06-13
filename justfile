@@ -23,6 +23,9 @@ gc:
   sudo nix-collect-garbage --delete-old
   nix-collect-garbage --delete-old
 
+fmt:
+  nix fmt .
+
 set-proxy host="tpm312" port="36178":
   #!/usr/bin/env bash
   set -euo pipefail
