@@ -21,6 +21,7 @@ up:
 gc:
   sudo nix store gc --debug
   sudo nix-collect-garbage --delete-old
+  nix-collect-garbage --delete-old
 
 set-proxy host="tpm312" port="36178":
   #!/usr/bin/env bash
