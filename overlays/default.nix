@@ -31,8 +31,8 @@
       src = prev.fetchFromGitHub {
         owner = "labwc";
         repo = "labwc";
-        rev = "d7f1b021b36f4221be8e6654d86db86b1b4250f2";
-        hash = "sha256-sVj6k5Y9tPYOP1GKSz837qNxEumTrzV/wYrUI58jd9g=";
+        rev = "5a50a02ba3e5d5a83f163ee603a2255779d941ab";
+        hash = "sha256-laYjc4bIFrJdqqYuBdd9GE6RscIpyeKf08ixmJccj9U=";
       };
       buildInputs =
         (old.buildInputs or [])
