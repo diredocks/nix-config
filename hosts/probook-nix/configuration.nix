@@ -38,7 +38,7 @@
     leo = {
       initialPassword = "1";
       isNormalUser = true;
-      extraGroups = ["wheel"];
+      extraGroups = ["wheel" "dialout"];
     };
   };
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
