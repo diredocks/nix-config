@@ -12,7 +12,6 @@
     ../../modules/home-manager/alacritty.nix
     ../../modules/home-manager/vscode.nix
     ../../modules/home-manager/pkgs.nix
-    ../../modules/home-manager/gtk.nix
   ];
 
   home = {

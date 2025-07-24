@@ -17,8 +17,7 @@
     ../../modules/nixos/devices.nix
     ../../modules/nixos/pkgs.nix
     ../../modules/nixos/services
-    ../../modules/nixos/desktop/labwc.nix
-    ../../modules/nixos/desktop/fonts.nix
+    ../../modules/nixos/desktop
   ];
 
   nixpkgs = {
@@ -40,13 +39,11 @@
     leo = {
       initialPassword = "1";
       isNormalUser = true;
-      extraGroups = ["wheel" "input"];
+      extraGroups = ["wheel"];
     };
   };
 
   boot.kernelPackages = pkgs.linuxPackages_6_12;
-
-  services.power-profiles-daemon.enable = true;
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "24.11";
