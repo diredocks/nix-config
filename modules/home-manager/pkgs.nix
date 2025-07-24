@@ -26,5 +26,6 @@
     vlc
     remmina
     code-cursor
+    claude-code
   ];
 }
