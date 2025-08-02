@@ -25,7 +25,6 @@
     obsidian
     vlc
     remmina
-    code-cursor
-    claude-code
+    zed-editor
   ];
 }
