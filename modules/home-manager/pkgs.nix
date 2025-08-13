@@ -26,5 +26,6 @@
     vlc
     remmina
     zed-editor
+    claude-code
   ];
 }
