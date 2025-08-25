@@ -1,21 +1,21 @@
 default: switch
 
 boot:
-  nixos-rebuild boot --flake . --use-remote-sudo
+  nixos-rebuild boot --flake . --sudo
 
 switch:
-  nixos-rebuild switch --flake . --use-remote-sudo
+  nixos-rebuild switch --flake . --sudo
 
 switch-debug:
-  nixos-rebuild switch --flake . --use-remote-sudo --show-trace --verbose
+  nixos-rebuild switch --flake . --sudo --show-trace --verbose
 
 deploy host='pixelbook-nix' target='':
-  nixos-rebuild switch --flake .#{{host}} --target-host {{target}} --use-remote-sudo
+  nixos-rebuild switch --flake .#{{host}} --target-host {{target}} --sudo
 
 deploy-debug host='pixelbook-nix' target='':
-  nixos-rebuild switch --flake .#{{host}} --target-host {{target}} --use-remote-sudo --show-trace --verbose
+  nixos-rebuild switch --flake .#{{host}} --target-host {{target}} --sudo --show-trace --verbose
 
-up:
+update:
   nix flake update
 
 gc:
@@ -26,7 +26,7 @@ gc:
 fmt:
   nix fmt .
 
-set-proxy host="tpm312" port="6699":
+set-proxy host="tpm312" port="36176":
   #!/usr/bin/env bash
   set -euo pipefail
   proxy_ip=$(tailscale ip --4 {{host}})
