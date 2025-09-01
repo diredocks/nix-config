@@ -30,6 +30,7 @@
   systemd.services.NetworkManager-wait-online.enable = false;
 
   boot.tmp.useTmpfs = true;
+  boot.binfmt.emulatedSystems = ["aarch64-linux"]; # For building aarch64 images
 
   time.timeZone = "Asia/Shanghai";
   i18n.defaultLocale = "en_US.UTF-8";
@@ -41,6 +42,6 @@
       extraGroups = ["wheel" "dialout"];
     };
   };
-  # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
+
   system.stateVersion = "23.05";
 }

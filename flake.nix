@@ -38,6 +38,7 @@
     inherit (self) outputs;
     systems = [
       "x86_64-linux"
+      "aarch64-linux"
     ];
     forAllSystems = nixpkgs.lib.genAttrs systems;
   in {
@@ -47,8 +48,9 @@
           import ./pkgs nixpkgs.legacyPackages.${system}
       )
       // {
-        # build these images with `nix build .\#packages.xxx`
+        # NOTE: build these images with `nix build .\#packages.xxx`
         claw-jp-image = self.nixosConfigurations.claw-jp.config.system.build.diskoImages;
+        tpm312-image = self.nixosConfigurations.tpm312.config.system.build.sdImage;
       };
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
@@ -64,11 +66,13 @@
       makeConfig = {
         host,
         home,
+        system ? "x86_64-linux",
         withDisko ? false,
         withHomeManager ? true,
         withAge ? true,
       }:
         nixpkgs.lib.nixosSystem {
+          inherit system;
           specialArgs = {inherit inputs outputs;};
           modules =
             [
@@ -103,6 +107,11 @@
         host = "claw-jp";
         home = "home.nix";
         withDisko = true;
+      };
+      tpm312 = makeConfig {
+        host = "tpm312";
+        home = "home.nix";
+        system = "aarch64-linux";
       };
     };
   };
