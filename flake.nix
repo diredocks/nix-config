@@ -49,7 +49,6 @@
       )
       // {
         # NOTE: build these images with `nix build .\#packages.xxx`
-        claw-jp-image = self.nixosConfigurations.claw-jp.config.system.build.diskoImages;
         tpm312-image = self.nixosConfigurations.tpm312.config.system.build.sdImage;
         vmiss-la-image = self.nixosConfigurations.vmiss-la.config.system.build.diskoImages;
       };
@@ -103,11 +102,6 @@
       pixelbook-nix = makeConfig {
         host = "pixelbook-nix";
         home = "home.nix";
-      };
-      claw-jp = makeConfig {
-        host = "claw-jp";
-        home = "home.nix";
-        withDisko = true;
       };
       vmiss-la = makeConfig {
         host = "vmiss-la";
