@@ -18,6 +18,7 @@ in {
     ../../modules/nixos/services/nix.nix
     ../../modules/nixos/services/sshd.nix
     ../../modules/nixos/services/shell.nix
+    ../../modules/nixos/services/sing-box.nix
     {
       age.secrets.vmiss-la-addr = {
         file = ../../secrets/vmiss-la-eth0.network;
@@ -25,6 +26,9 @@ in {
         mode = "444";
         symlink = true;
       };
+    }
+    {
+      age.secrets.vmiss-la-sb-conf.file = ../../secrets/vmiss-la-sb-config.json;
     }
   ];
 
@@ -61,7 +65,14 @@ in {
   services.tailscale.enable = true;
   environment.systemPackages = with pkgs; [
     tailscale
+    sing-box
   ];
+
+  services.sing-box = {
+    enable = true;
+    settingsFile = config.age.secrets.vmiss-la-sb-conf.path;
+  };
+  systemd.services.sing-box.restartTriggers = ["${config.age.secrets.vmiss-la-sb-conf.file}"];
 
   system.stateVersion = "25.05";
 }
