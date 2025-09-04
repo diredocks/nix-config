@@ -7,4 +7,10 @@ in {
       sshKeys.systems.probook-nix
       sshKeys.systems.claw-jp
     ];
+  "vmiss-la-eth0.network".publicKeys =
+    sshKeys.allUsers
+    ++ [
+      sshKeys.systems.probook-nix
+      sshKeys.systems.vmiss-la
+    ];
 }
