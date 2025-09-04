@@ -1,19 +1,19 @@
 default: switch
 
 boot:
-  nixos-rebuild boot --flake . --sudo
+  nixos-rebuild boot --flake . --sudo --ask-sudo-password
 
 switch:
-  nixos-rebuild switch --flake . --sudo
+  nixos-rebuild switch --flake . --sudo --ask-sudo-password
 
 switch-debug:
-  nixos-rebuild switch --flake . --sudo --show-trace --verbose
+  nixos-rebuild switch --flake . --sudo --ask-sudo-password --show-trace --verbose
 
 deploy host='pixelbook-nix' target='':
-  nixos-rebuild switch --flake .#{{host}} --target-host {{target}} --sudo
+  nixos-rebuild switch --flake .#{{host}} --target-host {{target}} --sudo --ask-sudo-password 
 
 deploy-debug host='pixelbook-nix' target='':
-  nixos-rebuild switch --flake .#{{host}} --target-host {{target}} --sudo --show-trace --verbose
+  nixos-rebuild switch --flake .#{{host}} --target-host {{target}} --sudo --ask-sudo-password --show-trace --verbose
 
 update:
   nix flake update
