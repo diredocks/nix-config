@@ -18,6 +18,14 @@ in {
     ../../modules/nixos/services/nix.nix
     ../../modules/nixos/services/sshd.nix
     ../../modules/nixos/services/shell.nix
+    {
+      age.secrets.vmiss-la-addr = {
+        file = ../../secrets/vmiss-la-eth0.network;
+        path = "/etc/systemd/network/vmiss-la-eth0.network";
+        mode = "444";
+        symlink = true;
+      };
+    }
   ];
 
   nixpkgs = {
@@ -44,11 +52,6 @@ in {
       initialPassword = "1";
       isNormalUser = true;
       extraGroups = ["wheel"];
-      openssh.authorizedKeys.keys = [
-        sshKeys.users.leo_probook-nix
-      ];
-    };
-    root = {
       openssh.authorizedKeys.keys = [
         sshKeys.users.leo_probook-nix
       ];
