@@ -26,7 +26,6 @@
         fcitx5-rime
         rime-data
       ];
-      plasma6Support = true;
       waylandFrontend = true;
     };
   };
