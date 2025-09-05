@@ -19,17 +19,6 @@ in {
     ../../modules/nixos/services/sshd.nix
     ../../modules/nixos/services/shell.nix
     ../../modules/nixos/services/sing-box.nix
-    {
-      age.secrets.vmiss-la-addr = {
-        file = ../../secrets/vmiss-la-eth0.network;
-        path = "/etc/systemd/network/vmiss-la-eth0.network";
-        mode = "444";
-        symlink = true;
-      };
-    }
-    {
-      age.secrets.vmiss-la-sb-conf.file = ../../secrets/vmiss-la-sb-config.json;
-    }
   ];
 
   nixpkgs = {
@@ -47,6 +36,12 @@ in {
   ];
   systemd.network.enable = true;
   services.resolved.enable = false;
+  age.secrets.vmiss-la-addr = {
+    file = ../../secrets/vmiss-la-eth0.network;
+    path = "/etc/systemd/network/vmiss-la-eth0.network";
+    mode = "444";
+    symlink = true;
+  };
 
   time.timeZone = "America/Los_Angeles";
   i18n.defaultLocale = "en_US.UTF-8";
@@ -73,6 +68,7 @@ in {
     settingsFile = config.age.secrets.vmiss-la-sb-conf.path;
   };
   systemd.services.sing-box.restartTriggers = ["${config.age.secrets.vmiss-la-sb-conf.file}"];
+  age.secrets.vmiss-la-sb-conf.file = ../../secrets/vmiss-la-sb-config.json;
 
   system.stateVersion = "25.05";
 }
