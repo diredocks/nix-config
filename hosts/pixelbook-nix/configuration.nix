@@ -20,14 +20,6 @@
     ../../modules/nixos/desktop
   ];
 
-  nixpkgs = {
-    overlays = [
-      outputs.overlays.additions
-      outputs.overlays.modifications
-      inputs.alacritty-theme.overlays.default
-    ];
-  };
-
   networking.hostName = "pixelbook-nix";
   networking.networkmanager.enable = true;
   systemd.services.NetworkManager-wait-online.enable = false;

@@ -21,13 +21,6 @@ in {
     ../../modules/nixos/services/sing-box.nix
   ];
 
-  nixpkgs = {
-    overlays = [
-      outputs.overlays.additions
-      outputs.overlays.modifications
-    ];
-  };
-
   networking.hostName = "vmiss-la";
   networking.firewall.enable = false;
   networking.useDHCP = false;

@@ -2,6 +2,7 @@
   inputs,
   lib,
   config,
+  outputs,
   pkgs,
   ...
 }: {
@@ -25,5 +26,10 @@
     config = {
       allowUnfree = true;
     };
+    overlays = [
+      outputs.overlays.additions
+      outputs.overlays.modifications
+      inputs.alacritty-theme.overlays.default
+    ];
   };
 }

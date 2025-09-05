@@ -21,13 +21,6 @@ in {
     ../../modules/nixos/services/sing-box.nix
   ];
 
-  nixpkgs = {
-    overlays = [
-      outputs.overlays.additions
-      outputs.overlays.modifications
-    ];
-  };
-
   networking.hostName = "racknerd";
   networking.firewall.enable = false;
   services.resolved.enable = false;

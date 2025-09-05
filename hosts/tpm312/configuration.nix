@@ -20,13 +20,6 @@ in {
     ../../modules/nixos/services/shell.nix
   ];
 
-  nixpkgs = {
-    overlays = [
-      outputs.overlays.additions
-      outputs.overlays.modifications
-    ];
-  };
-
   networking.hostName = "tpm312";
   networking.networkmanager.enable = true;
   networking.firewall.enable = false;
