@@ -13,4 +13,10 @@ in {
       sshKeys.systems.probook-nix
       sshKeys.systems.vmiss-la
     ];
+   "racknerd-sb-config.json".publicKeys =
+    sshKeys.allUsers
+    ++ [
+      sshKeys.systems.probook-nix
+      sshKeys.systems.racknerd
+    ];
 }

@@ -51,6 +51,7 @@
         # NOTE: build these images with `nix build .\#packages.xxx`
         tpm312-image = self.nixosConfigurations.tpm312.config.system.build.sdImage;
         vmiss-la-image = self.nixosConfigurations.vmiss-la.config.system.build.diskoImages;
+        racknerd-image = self.nixosConfigurations.racknerd.config.system.build.diskoImages;
       };
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
@@ -105,6 +106,11 @@
       };
       vmiss-la = makeConfig {
         host = "vmiss-la";
+        home = "home.nix";
+        withDisko = true;
+      };
+      racknerd = makeConfig {
+        host = "racknerd";
         home = "home.nix";
         withDisko = true;
       };
