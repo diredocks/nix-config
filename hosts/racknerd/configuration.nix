@@ -61,7 +61,7 @@ in {
   systemd.services.sing-box.restartTriggers = ["${config.age.secrets.racknerd-sb-conf.file}"];
   age.secrets.racknerd-sb-conf.file = ../../secrets/racknerd-sb-config.json;
 
-  services.openssh.ports = [9283];
+  services.openssh.ports = [24228];
 
   system.stateVersion = "25.05";
 }

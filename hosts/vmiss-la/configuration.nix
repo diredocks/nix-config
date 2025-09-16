@@ -63,5 +63,7 @@ in {
   systemd.services.sing-box.restartTriggers = ["${config.age.secrets.vmiss-la-sb-conf.file}"];
   age.secrets.vmiss-la-sb-conf.file = ../../secrets/vmiss-la-sb-config.json;
 
+  services.openssh.ports = [41867];
+
   system.stateVersion = "25.05";
 }
