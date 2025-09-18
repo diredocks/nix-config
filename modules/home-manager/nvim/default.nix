@@ -99,6 +99,14 @@
           name = "mini.surround";
           path = mini-nvim;
         }
+        {
+          name = "mini.icons";
+          path = mini-icons;
+        }
+        {
+          name = "grug-far.nvim";
+          path = grug-far-nvim;
+        }
       ];
       mkEntryFromDrv = drv:
         if lib.isDerivation drv
