@@ -16,6 +16,7 @@
         "--enable-wayland-ime"
         "--wayland-text-input-version=3"
         "--enable-features=TouchpadOverscrollHistoryNavigation"
+        "--disable-features=GlobalShortcutsPortal"
       ];
     })
     hugo
