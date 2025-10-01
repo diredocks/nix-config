@@ -3,7 +3,21 @@
   lib,
   pkgs,
   ...
-}: {
+}: let
+  neo-tree-nvim-main = pkgs.vimUtils.buildVimPlugin {
+    pname = "neo-tree-nvim-main";
+    version = "3.35.2+6";
+    src = pkgs.fetchFromGitHub {
+      owner = "nvim-neo-tree";
+      repo = "neo-tree.nvim";
+      rev = "8dd9f08ff086d09d112f1873f88dc0f74b598cdb";
+      sha256 = "sha256-edthaqznGTJ+VFVORK7gfHI9J14PLAghG9prsWlzXtc=";
+    };
+    doCheck = false;
+    meta.homepage = "https://github.com/nvim-neo-tree/neo-tree.nvim/";
+    meta.hydraPlatforms = [];
+  };
+in {
   programs.neovim = {
     enable = true;
     extraPackages = with pkgs; [
@@ -34,7 +48,10 @@
         friendly-snippets
         gitsigns-nvim
         lualine-nvim
-        neo-tree-nvim
+        {
+          name = "neo-tree.nvim";
+          path = neo-tree-nvim-main;
+        }
         neoconf-nvim
         neodev-nvim
         noice-nvim
