@@ -25,6 +25,14 @@
       url = "github:nix-community/disko?shallow=1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nvim-treesitter = {
+      url = "github:nvim-treesitter/nvim-treesitter/main";
+      flake = false;
+    };
+    nvim-treesitter-textobjects = {
+      url = "github:nvim-treesitter/nvim-treesitter-textobjects/main";
+      flake = false;
+    };
   };
 
   outputs = {
