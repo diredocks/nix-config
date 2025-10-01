@@ -19,7 +19,7 @@
         };
       };
       font = {
-        size = 15;
+        size = 14.0;
         normal = {
           family = "ComicShannsMono Nerd Font";
         };
