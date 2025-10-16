@@ -27,6 +27,16 @@
       };
       vendorHash = "sha256-4kAU+8YXrJOu1wyiuFuPWT0dHI3WzlXY9s7NKyI9r5U=";
     });
+    sing-box = prev.sing-box.overrideAttrs (old: rec {
+      version = "1.12.10";
+      src = prev.fetchFromGitHub {
+        owner = "SagerNet";
+        repo = "sing-box";
+        tag = "v${version}";
+        hash = "sha256-ZnpvE/x2+kKlKYuez1VaVx7qkybYhRTqfg7yorZpxfc=";
+      };
+      vendorHash = "sha256-D4nfi5PzcL9CcgLvm09DmF2Ws1o4wIH0zjgv1qDP7Nw=";
+    });
     labwc = prev.labwc.overrideAttrs (old: {
       src = prev.fetchFromGitHub {
         owner = "labwc";
