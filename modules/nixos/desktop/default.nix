@@ -8,5 +8,6 @@
   imports = [
     ./fonts.nix
     ./kde.nix
+    ./fcitx.nix
   ];
 }

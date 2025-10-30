@@ -28,5 +28,6 @@
     remmina
     zed-editor
     claude-code
+    thunderbird
   ];
 }

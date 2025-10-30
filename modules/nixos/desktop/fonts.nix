@@ -15,7 +15,7 @@
       source-han-serif
       source-code-pro
       jetbrains-mono
-      ubuntu_font_family
+      ubuntu-classic
       nerd-fonts.jetbrains-mono
       nerd-fonts.comic-shanns-mono
       adwaita-fonts
