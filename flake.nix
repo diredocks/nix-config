@@ -25,12 +25,16 @@
       url = "github:nix-community/disko?shallow=1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    wrangler = {
+      url = "github:emrldnix/wrangler?shallow=1";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nvim-treesitter = {
-      url = "github:nvim-treesitter/nvim-treesitter/main";
+      url = "github:nvim-treesitter/nvim-treesitter/main?shallow=1";
       flake = false;
     };
     nvim-treesitter-textobjects = {
-      url = "github:nvim-treesitter/nvim-treesitter-textobjects/main";
+      url = "github:nvim-treesitter/nvim-treesitter-textobjects/main?shallow=1";
       flake = false;
     };
   };
@@ -41,6 +45,7 @@
     home-manager,
     alacritty-theme,
     agenix,
+    wrangler,
     ...
   } @ inputs: let
     inherit (self) outputs;

@@ -101,6 +101,27 @@
         "type": "github"
       }
     },
+    "flake-parts_2": {
+      "inputs": {
+        "nixpkgs-lib": [
+          "wrangler",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1760948891,
+        "narHash": "sha256-TmWcdiUUaWk8J4lpjzu4gCGxWY6/Ok7mOK4fIFfBuU4=",
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "rev": "864599284fc7c0ba6357ed89ed5e2cd5040f0c04",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -216,7 +237,8 @@
         "kwin-gestures": "kwin-gestures",
         "nixpkgs": "nixpkgs",
         "nvim-treesitter": "nvim-treesitter",
-        "nvim-treesitter-textobjects": "nvim-treesitter-textobjects"
+        "nvim-treesitter-textobjects": "nvim-treesitter-textobjects",
+        "wrangler": "wrangler"
       }
     },
     "systems": {
@@ -264,6 +286,27 @@
       "original": {
         "owner": "numtide",
         "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "wrangler": {
+      "inputs": {
+        "flake-parts": "flake-parts_2",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1761855122,
+        "narHash": "sha256-UcPq2p21NqqLiQOW73Y80GKDXBizZa6rK/f9wBd+l44=",
+        "owner": "emrldnix",
+        "repo": "wrangler",
+        "rev": "7fc2104e68951763bd7b983dc29e04e52f2edac5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "emrldnix",
+        "repo": "wrangler",
         "type": "github"
       }
     }

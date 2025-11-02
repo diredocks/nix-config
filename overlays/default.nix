@@ -7,6 +7,7 @@
   # You can change versions, add patches, set compilation flags, anything really.
   # https://nixos.wiki/wiki/Overlays
   modifications = final: prev: {
+    # wrangler = inputs.wrangler.packages.${final.system}.default;
     xray = prev.xray.overrideAttrs (old: rec {
       version = "25.4.30";
       src = prev.fetchFromGitHub {
