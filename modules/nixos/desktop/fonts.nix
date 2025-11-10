@@ -16,9 +16,10 @@
       source-code-pro
       jetbrains-mono
       ubuntu-classic
-      # nerd-fonts.jetbrains-mono
+      nerd-fonts.jetbrains-mono
       # nerd-fonts.comic-shanns-mono
-      nerd-fonts.agave
+      # nerd-fonts.agave
+      # nerd-fonts.iosevka
       adwaita-fonts
     ];
     fontconfig = {
