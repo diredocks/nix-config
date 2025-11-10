@@ -21,7 +21,7 @@
       font = {
         size = 14.0;
         normal = {
-          family = "ComicShannsMono Nerd Font";
+          family = "Agave Nerd Font Mono";
         };
       };
       mouse = {

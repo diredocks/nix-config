@@ -16,15 +16,16 @@
       source-code-pro
       jetbrains-mono
       ubuntu-classic
-      nerd-fonts.jetbrains-mono
-      nerd-fonts.comic-shanns-mono
+      # nerd-fonts.jetbrains-mono
+      # nerd-fonts.comic-shanns-mono
+      nerd-fonts.agave
       adwaita-fonts
     ];
     fontconfig = {
       defaultFonts = {
         emoji = ["Noto Color Emoji"];
-        monospace = ["Noto Sans Mono CJK SC" "Sarasa Mono SC" "DejaVu Sans Mono"];
-        sansSerif = ["Adwaita Sans" "Noto Sans CJK SC" "Source Han Sans SC" "DejaVu Sans"];
+        monospace = ["Noto Sans Mono CJK SC" "DejaVu Sans Mono"];
+        sansSerif = ["Noto Sans CJK SC" "Source Han Sans SC" "DejaVu Sans"];
         serif = ["Noto Serif CJK SC" "Source Han Serif SC" "DejaVu Serif"];
       };
       useEmbeddedBitmaps = true;
