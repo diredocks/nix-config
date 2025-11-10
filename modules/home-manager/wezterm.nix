@@ -12,6 +12,8 @@
       return {
 
       font_size = 12.0,
+      cell_width = 0.9,
+      line_height = 0.9,
       font = wezterm.font_with_fallback { "JetBrainsMono Nerd Font", "Noto Sans Mono CJK SC" },
       color_scheme = "Tokyo Night Storm",
 
@@ -20,11 +22,12 @@
       use_fancy_tab_bar = false,
       hide_tab_bar_if_only_one_tab = true,
 
-      initial_cols = 123,
+      initial_cols = 160,
       initial_rows = 45,
 
       animation_fps = 1,
       hide_mouse_cursor_when_typing = true,
+      window_close_confirmation = "NeverPrompt",
 
       window_padding = {
         left = 0,
@@ -59,6 +62,29 @@
           end),
         },
         { key = "k", mods = "LEADER", action = act.ActivateTabRelative(-1) },
+      },
+
+      mouse_bindings = {
+        {
+          event = { Up = { streak = 1, button = "Left" } },
+          mods = "NONE",
+          action = act.Nop,
+        },
+        {
+          event = { Up = { streak = 1, button = "Left" } },
+          mods = "SHIFT",
+          action = act.OpenLinkAtMouseCursor,
+        },
+        {
+          event = { Up = { streak = 2, button = "Left" } },
+          mods = "NONE",
+          action = act.Nop,
+        },
+        {
+          event = { Up = { streak = 3, button = "Left" } },
+          mods = "NONE",
+          action = act.Nop,
+        },
       },
 
       }
