@@ -12,7 +12,7 @@
       return {
 
       font_size = 13.0,
-      font = wezterm.font("Agave Nerd Font Mono"),
+      font = wezterm.font_with_fallback { "Agave Nerd Font Mono", "Noto Sans Mono CJK SC" },
       color_scheme = "Tokyo Night Storm",
 
       enable_tab_bar = true,
