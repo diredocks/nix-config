@@ -29,5 +29,6 @@
     zed-editor
     claude-code
     thunderbird
+    strawberry
   ];
 }
