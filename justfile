@@ -26,13 +26,11 @@ gc:
 fmt:
   nix fmt .
 
-set-proxy host="tpm312" port="36176":
+set-proxy:
   #!/usr/bin/env bash
   set -euo pipefail
-  proxy_ip=$(tailscale ip --4 {{host}})
-  test -n "$proxy_ip"
   sudo mkdir -p /run/systemd/system/nix-daemon.service.d
-  echo -e '[Service]\nEnvironment="http_proxy=socks5://'${proxy_ip}':{{port}}"\nEnvironment="https_proxy=socks5://'${proxy_ip}':{{port}}"' | \
+  echo -e '[Service]\nEnvironment="http_proxy=http://192.168.31.227:36176"\nEnvironment="https_proxy=http://192.168.31.227:36176"' | \
   sudo tee /run/systemd/system/nix-daemon.service.d/override.conf > /dev/null
   sudo systemctl daemon-reload
   sudo systemctl restart nix-daemon
