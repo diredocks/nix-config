@@ -10,6 +10,8 @@
     ../../modules/home-manager/nvim
     ../../modules/home-manager/zsh.nix
     ../../modules/home-manager/alacritty.nix
+    # ../../modules/home-manager/alacritty.nix
+    ../../modules/home-manager/foot.nix
     # ../../modules/home-manager/ghostty.nix
     # ../../modules/home-manager/wezterm.nix
     ../../modules/home-manager/vscode.nix
