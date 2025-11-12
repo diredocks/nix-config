@@ -7,10 +7,10 @@
       url = "github:nix-community/home-manager?shallow=1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    alacritty-theme = {
-      url = "github:alexghr/alacritty-theme.nix?shallow=1";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # alacritty-theme = {
+    #   url = "github:alexghr/alacritty-theme.nix?shallow=1";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     kwin-gestures = {
       url = "github:taj-ny/kwin-gestures?shallow=1";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -25,10 +25,10 @@
       url = "github:nix-community/disko?shallow=1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    wrangler = {
-      url = "github:emrldnix/wrangler?shallow=1";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # wrangler = {
+    #   url = "github:emrldnix/wrangler?shallow=1";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     nvim-treesitter = {
       url = "github:nvim-treesitter/nvim-treesitter/main?shallow=1";
       flake = false;
@@ -43,9 +43,9 @@
     self,
     nixpkgs,
     home-manager,
-    alacritty-theme,
+    # alacritty-theme,
     agenix,
-    wrangler,
+    # wrangler,
     ...
   } @ inputs: let
     inherit (self) outputs;
