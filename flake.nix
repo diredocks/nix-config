@@ -79,7 +79,6 @@
         else [];
       makeConfig = {
         host,
-        home,
         system ? "x86_64-linux",
         withDisko ? false,
         withHomeManager ? true,
@@ -98,7 +97,7 @@
               {
                 home-manager.useGlobalPkgs = true;
                 home-manager.useUserPackages = true;
-                home-manager.users.leo = import ./hosts/${host}/${home};
+                home-manager.users.leo = import ./hosts/${host}/home.nix;
               }
             ]
             ++ mkModules withAge [
@@ -111,25 +110,20 @@
     in {
       probook-nix = makeConfig {
         host = "probook-nix";
-        home = "home.nix";
       };
       pixelbook-nix = makeConfig {
         host = "pixelbook-nix";
-        home = "home.nix";
       };
       vmiss-la = makeConfig {
         host = "vmiss-la";
-        home = "home.nix";
         withDisko = true;
       };
       racknerd = makeConfig {
         host = "racknerd";
-        home = "home.nix";
         withDisko = true;
       };
       tpm312 = makeConfig {
         host = "tpm312";
-        home = "home.nix";
         system = "aarch64-linux";
       };
     };
