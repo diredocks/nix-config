@@ -6,20 +6,14 @@ boot:
 switch:
   nixos-rebuild switch --flake . --sudo --ask-sudo-password
 
-switch-debug:
-  nixos-rebuild switch --flake . --sudo --ask-sudo-password --show-trace --verbose
-
 deploy host='' target='':
   nixos-rebuild switch --flake .#{{host}} --target-host {{target}} --sudo --ask-sudo-password 
-
-deploy-debug host='' target='':
-  nixos-rebuild switch --flake .#{{host}} --target-host {{target}} --sudo --ask-sudo-password --show-trace --verbose
 
 update:
   nix flake update
 
 gc:
-  sudo nix store gc --debug
+  sudo nix store gc
   sudo nix-collect-garbage --delete-old
   nix-collect-garbage --delete-old
 
