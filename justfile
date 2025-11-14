@@ -9,10 +9,10 @@ switch:
 switch-debug:
   nixos-rebuild switch --flake . --sudo --ask-sudo-password --show-trace --verbose
 
-deploy host='pixelbook-nix' target='':
+deploy host='' target='':
   nixos-rebuild switch --flake .#{{host}} --target-host {{target}} --sudo --ask-sudo-password 
 
-deploy-debug host='pixelbook-nix' target='':
+deploy-debug host='' target='':
   nixos-rebuild switch --flake .#{{host}} --target-host {{target}} --sudo --ask-sudo-password --show-trace --verbose
 
 update:
