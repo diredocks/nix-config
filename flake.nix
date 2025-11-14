@@ -2,9 +2,9 @@
   description = "Diredocks' NixOS";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable?shallow=1";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
-      url = "github:nix-community/home-manager?shallow=1";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # alacritty-theme = {
@@ -12,17 +12,17 @@
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
     kwin-gestures = {
-      url = "github:taj-ny/kwin-gestures?shallow=1";
+      url = "github:taj-ny/kwin-gestures";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     agenix = {
-      url = "github:ryantm/agenix?shallow=1";
+      url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
       inputs.darwin.follows = "";
     };
     disko = {
-      url = "github:nix-community/disko?shallow=1";
+      url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # wrangler = {
@@ -30,11 +30,11 @@
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
     nvim-treesitter = {
-      url = "github:nvim-treesitter/nvim-treesitter/main?shallow=1";
+      url = "github:nvim-treesitter/nvim-treesitter/main";
       flake = false;
     };
     nvim-treesitter-textobjects = {
-      url = "github:nvim-treesitter/nvim-treesitter-textobjects/main?shallow=1";
+      url = "github:nvim-treesitter/nvim-treesitter-textobjects/main";
       flake = false;
     };
   };
