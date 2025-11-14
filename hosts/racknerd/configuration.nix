@@ -19,10 +19,15 @@ in {
     ../../modules/nixos/services/sshd.nix
     ../../modules/nixos/services/shell.nix
     ../../modules/nixos/services/sing-box.nix
+    ../../modules/nixos/services/tailscale-derper.nix
   ];
 
   networking.hostName = "racknerd";
-  networking.firewall.enable = false;
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [80 443 8010];
+    allowedUDPPorts = [80 443 3478];
+  };
   services.resolved.enable = false;
   networking.useDHCP = false;
   networking.nameservers = [
@@ -49,6 +54,13 @@ in {
   };
 
   services.tailscale.enable = true;
+  services.tailscale.derper = {
+    enable = true;
+    envFile = config.age.secrets.racknerd-derp.path;
+  };
+  systemd.services.tailscale-derper.restartTriggers = ["${config.age.secrets.racknerd-derp.file}"];
+  age.secrets.racknerd-derp.file = ../../secrets/racknerd-derp.env;
+
   environment.systemPackages = with pkgs; [
     tailscale
     sing-box

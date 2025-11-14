@@ -19,4 +19,10 @@ in {
       sshKeys.systems.probook-nix
       sshKeys.systems.racknerd
     ];
+  "racknerd-derp.env".publicKeys =
+    sshKeys.allUsers
+    ++ [
+      sshKeys.systems.probook-nix
+      sshKeys.systems.racknerd
+    ];
 }
