@@ -35,5 +35,11 @@
         hash = "sha256-zObmN1MlVLg7H+otBarCwXFykcCdgfBLvLFddbnCIgI=";
       };
     });
+    hmcl = prev.hmcl.overrideAttrs (old: rec {
+      src = prev.fetchurl {
+        url = "https://github.com/HMCL-dev/HMCL/releases/download/v3.7.5/HMCL-3.7.5.jar";
+        hash = "sha256-C3/+XsUJJmyLyqnXCWMbaU2ZvE6uZVyy/2f9GykB0QI=";
+      };
+    });
   };
 }

@@ -30,5 +30,6 @@
     claude-code
     thunderbird
     strawberry
+    hmcl
   ];
 }
