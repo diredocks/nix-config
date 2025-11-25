@@ -31,7 +31,7 @@ with lib; {
       systemd.services.tailscale-derper = {
         serviceConfig = {
           EnvironmentFile = cfg.envFile;
-          ExecStart = 
+          ExecStart =
             "${lib.getExe' cfg.package "derper"} -c /var/lib/derper/derper.key"
             + " -hostname \${DERP_DOMAIN}"
             + " -certmode \${DERP_CERT_MODE}"
