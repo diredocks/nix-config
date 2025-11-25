@@ -11,6 +11,10 @@
       init = {
         defaultBranch = "main";
       };
+      user = {
+        name = "diredocks";
+        email = "26994007+diredocks@users.noreply.github.com";
+      };
     };
   };
 }
