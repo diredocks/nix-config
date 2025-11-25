@@ -7,9 +7,10 @@
 }: {
   imports = [
     ./nix.nix
-    ./others.nix
-    ./shell.nix
+    ./git.nix
     ./sshd.nix
     ./virt.nix
+    ./shell.nix
+    ./others.nix
   ];
 }

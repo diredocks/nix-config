@@ -6,12 +6,12 @@
   ...
 }: {
   imports = [
+    ../../modules/home-manager
     ../../modules/home-manager/nvim
     ../../modules/home-manager/kwin
-    ../../modules/home-manager/zsh.nix
-    ../../modules/home-manager/alacritty.nix
-    ../../modules/home-manager/vscode.nix
     ../../modules/home-manager/pkgs.nix
+    ../../modules/home-manager/foot.nix
+    ../../modules/home-manager/vscode.nix
   ];
 
   home = {
@@ -20,7 +20,6 @@
   };
 
   programs.home-manager.enable = true;
-  programs.git.enable = true;
 
   programs.alacritty.settings.font.size = lib.mkForce 12;
 

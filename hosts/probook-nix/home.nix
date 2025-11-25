@@ -6,15 +6,12 @@
   ...
 }: {
   imports = [
+    ../../modules/home-manager
     ../../modules/home-manager/kwin
     ../../modules/home-manager/nvim
-    ../../modules/home-manager/zsh.nix
-    # ../../modules/home-manager/alacritty.nix
-    ../../modules/home-manager/foot.nix
-    # ../../modules/home-manager/ghostty.nix
-    # ../../modules/home-manager/wezterm.nix
-    ../../modules/home-manager/vscode.nix
     ../../modules/home-manager/pkgs.nix
+    ../../modules/home-manager/foot.nix
+    ../../modules/home-manager/vscode.nix
   ];
 
   home = {
@@ -23,7 +20,6 @@
   };
 
   programs.home-manager.enable = true;
-  programs.git.enable = true;
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
