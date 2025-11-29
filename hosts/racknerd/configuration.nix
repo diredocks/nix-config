@@ -63,7 +63,7 @@ in {
 
   services.cloudflare-warp = {
     enable = true;
-    package = pkgs.cloudflare-warp.override { headless = true; };
+    package = pkgs.cloudflare-warp.override {headless = true;};
   };
 
   environment.systemPackages = with pkgs; [

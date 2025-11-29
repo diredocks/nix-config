@@ -103,7 +103,7 @@
             ++ mkModules withAge [
               inputs.agenix.nixosModules.default
               ({pkgs, ...}: {
-                environment.systemPackages = [inputs.agenix.packages.${pkgs.system}.default];
+                environment.systemPackages = [inputs.agenix.packages.${pkgs.stdenv.hostPlatform.system}.default];
               })
             ];
         };
