@@ -61,6 +61,11 @@ in {
   systemd.services.tailscale-derper.restartTriggers = ["${config.age.secrets.racknerd-derp.file}"];
   age.secrets.racknerd-derp.file = ../../secrets/racknerd-derp.env;
 
+  services.cloudflare-warp = {
+    enable = true;
+    package = pkgs.cloudflare-warp.override { headless = true; };
+  };
+
   environment.systemPackages = with pkgs; [
     tailscale
     sing-box
