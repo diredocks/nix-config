@@ -17,7 +17,6 @@
   programs.kdeconnect.enable = true;
   environment.systemPackages = with pkgs; [
     inputs.kwin-gestures.packages.${pkgs.system}.default
-    (pkgs.papirus-icon-theme.override {color = "green";})
   ];
   security.pam.services.leo.kwallet.enable = true;
 }
