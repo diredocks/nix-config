@@ -14,6 +14,7 @@
     ../../modules/nixos/devices.nix
     ../../modules/nixos/pkgs.nix
     ../../modules/nixos/services
+    ../../modules/nixos/services/virt.nix
     ../../modules/nixos/desktop
   ];
 

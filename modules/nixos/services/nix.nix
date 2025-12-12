@@ -1,5 +1,6 @@
 {
   inputs,
+  outputs,
   lib,
   config,
   pkgs,
@@ -33,5 +34,15 @@
     # Opinionated: make flake registry and nix path match flake inputs
     registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;
     nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
+  };
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+    };
+    overlays = [
+      outputs.overlays.additions
+      outputs.overlays.modifications
+      # inputs.alacritty-theme.overlays.default
+    ];
   };
 }
