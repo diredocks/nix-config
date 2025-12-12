@@ -7,11 +7,10 @@
 }: {
   imports = [
     ../../modules/home-manager
-    ../../modules/home-manager/nvim
-    ../../modules/home-manager/kwin
-    ../../modules/home-manager/pkgs.nix
+    # ../../modules/home-manager/nvim
+    # ../../modules/home-manager/pkgs.nix
+    ../../modules/home-manager/gtk.nix
     ../../modules/home-manager/foot.nix
-    ../../modules/home-manager/vscode.nix
   ];
 
   home = {
@@ -19,10 +18,21 @@
     homeDirectory = "/home/leo";
   };
 
+  home.packages = with pkgs; [
+    (brave.override {
+      commandLineArgs = [
+        "--ozone-platform-hint=auto"
+        "--enable-features=AcceleratedVideoDecodeLinuxGL"
+        "--enable-wayland-ime"
+        "--wayland-text-input-version=3"
+        "--enable-features=TouchpadOverscrollHistoryNavigation"
+        "--disable-features=GlobalShortcutsPortal"
+      ];
+    })
+    zed-editor
+  ];
+
   programs.home-manager.enable = true;
 
-  programs.alacritty.settings.font.size = lib.mkForce 12;
-
-  # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "24.11";
 }

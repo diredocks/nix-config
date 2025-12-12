@@ -1,7 +1,4 @@
 {
-  inputs,
-  lib,
-  config,
   pkgs,
   ...
 }: {
@@ -12,12 +9,8 @@
       package = pkgs.adw-gtk3;
     };
     iconTheme = {
-      name = "MoreWaita";
-      package = pkgs.morewaita-icon-theme;
-    };
-    cursorTheme = {
-      name = "ComixCursors-Opaque-White";
-      package = pkgs.comixcursors.Opaque_White;
+      name = "Adwaita";
+      package = pkgs.adwaita-icon-theme;
     };
   };
 }

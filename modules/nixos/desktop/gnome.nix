@@ -6,8 +6,7 @@
   pkgs,
   ...
 }: {
-  services.xserver = {
-    enable = true;
+  services = {
     displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
   };
@@ -15,34 +14,31 @@
     autoLogin.enable = true;
     autoLogin.user = "leo";
   };
+  services.gnome.games.enable = false;
+  services.gnome.gnome-keyring.enable = true;
   environment.gnome.excludePackages = with pkgs; [
-    gnome-photos
-    gnome-tour
-    cheese # webcam tool
+    baobab
+    decibels
+    epiphany
+    gnome-maps
     gnome-music
-    gedit # text editor
-    epiphany # web browser
-    geary # email reader
-    gnome-characters
-    tali # poker game
-    iagno # go game
-    hitori # sudoku game
-    atomix # puzzle game
-    yelp # Help view
-    gnome-contacts
-    gnome-initial-setup
-    gnome-terminal
+    gnome-connections
+    gnome-console
+    totem
+    yelp
+    simple-scan
+    geary
   ];
   environment.systemPackages = with pkgs; [
     gnome-tweaks
     gnomeExtensions.kimpanel
+    gnomeExtensions.appindicator
     gnomeExtensions.clipboard-indicator
+    gnomeExtensions.alphabetical-app-grid
+    gnomeExtensions.rounded-window-corners-reborn
   ];
-  environment.sessionVariables = {
-    XCURSOR_THEME = "Adwaita";
-  };
   programs.nautilus-open-any-terminal = {
     enable = true;
-    terminal = "alacritty";
+    terminal = "foot";
   };
 }

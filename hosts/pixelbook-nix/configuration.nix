@@ -17,7 +17,9 @@
     ../../modules/nixos/devices.nix
     ../../modules/nixos/pkgs.nix
     ../../modules/nixos/services
-    ../../modules/nixos/desktop
+    ../../modules/nixos/desktop/gnome.nix
+    ../../modules/nixos/desktop/fonts.nix
+    ../../modules/nixos/desktop/fcitx.nix
   ];
 
   networking.hostName = "pixelbook-nix";
