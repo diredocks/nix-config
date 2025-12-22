@@ -25,4 +25,10 @@ in {
       sshKeys.systems.probook-nix
       sshKeys.systems.racknerd
     ];
+  "aliyun-sb-config.json".publicKeys =
+    sshKeys.allUsers
+    ++ [
+      sshKeys.systems.probook-nix
+      sshKeys.systems.aliyun
+    ];
 }

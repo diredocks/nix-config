@@ -65,6 +65,7 @@
         tpm312-image = self.nixosConfigurations.tpm312.config.system.build.sdImage;
         vmiss-la-image = self.nixosConfigurations.vmiss-la.config.system.build.diskoImages;
         racknerd-image = self.nixosConfigurations.racknerd.config.system.build.diskoImages;
+        aliyun-image = self.nixosConfigurations.aliyun.config.system.build.diskoImages;
       };
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
@@ -120,6 +121,10 @@
       };
       racknerd = makeConfig {
         host = "racknerd";
+        withDisko = true;
+      };
+      aliyun = makeConfig {
+        host = "aliyun";
         withDisko = true;
       };
       tpm312 = makeConfig {
