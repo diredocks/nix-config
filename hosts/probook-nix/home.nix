@@ -6,6 +6,7 @@
   ...
 }: {
   imports = [
+    inputs.lazyvim.homeManagerModules.default
     ../../modules/home-manager
     ../../modules/home-manager/kwin
     ../../modules/home-manager/nvim

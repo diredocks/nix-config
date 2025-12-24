@@ -29,13 +29,9 @@
     #   url = "github:emrldnix/wrangler?shallow=1";
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
-    nvim-treesitter = {
-      url = "github:nvim-treesitter/nvim-treesitter/main";
-      flake = false;
-    };
-    nvim-treesitter-textobjects = {
-      url = "github:nvim-treesitter/nvim-treesitter-textobjects/main";
-      flake = false;
+    lazyvim = {
+      url = "github:pfassina/lazyvim-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
@@ -98,6 +94,7 @@
               {
                 home-manager.useGlobalPkgs = true;
                 home-manager.useUserPackages = true;
+                home-manager.extraSpecialArgs = {inherit inputs;};
                 home-manager.users.leo = import ./hosts/${host}/home.nix;
               }
             ]
