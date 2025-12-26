@@ -17,9 +17,7 @@
     ../../modules/nixos/devices.nix
     ../../modules/nixos/pkgs.nix
     ../../modules/nixos/services
-    ../../modules/nixos/desktop/gnome.nix
-    ../../modules/nixos/desktop/fonts.nix
-    ../../modules/nixos/desktop/fcitx.nix
+    ../../modules/nixos/desktop
   ];
 
   networking.hostName = "pixelbook-nix";
@@ -37,7 +35,7 @@
     };
   };
 
-  boot.kernelPackages = pkgs.linuxPackages_6_12;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "24.11";
