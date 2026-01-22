@@ -26,10 +26,9 @@
     obsidian
     vlc
     remmina
-    zed-editor
+    # zed-editor
     claude-code
     thunderbird
-    strawberry
     hmcl
   ];
 }
