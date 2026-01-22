@@ -25,6 +25,8 @@
   boot.tmp.useTmpfs = true;
   boot.binfmt.emulatedSystems = ["aarch64-linux"]; # For building aarch64 images
 
+  boot.kernelPackages = pkgs.linuxPackages_6_18;
+
   time.timeZone = "Asia/Shanghai";
   i18n.defaultLocale = "en_US.UTF-8";
 
