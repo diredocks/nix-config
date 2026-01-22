@@ -16,7 +16,8 @@
   services.desktopManager.plasma6.enable = true;
   programs.kdeconnect.enable = true;
   environment.systemPackages = with pkgs; [
-    inputs.kwin-gestures.packages.${pkgs.system}.default
+    inputs.inputactions.packages.${pkgs.system}.inputactions-ctl
+    inputs.inputactions.packages.${pkgs.system}.inputactions-kwin
   ];
   security.pam.services.leo.kwallet.enable = true;
 }
