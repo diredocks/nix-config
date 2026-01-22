@@ -32,11 +32,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1765326679,
-        "narHash": "sha256-fTLX9kDwLr9Y0rH/nG+h1XG5UU+jBcy0PFYn5eneRX8=",
+        "lastModified": 1766150702,
+        "narHash": "sha256-P0kM+5o+DKnB6raXgFEk3azw8Wqg5FL6wyl9jD+G5a4=",
         "owner": "nix-community",
         "repo": "disko",
-        "rev": "d64e5cdca35b5fad7c504f615357a7afe6d9c49e",
+        "rev": "916506443ecd0d0b4a0f4cf9d40a3c22ce39b378",
         "type": "github"
       },
       "original": {
@@ -70,11 +70,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1765606130,
-        "narHash": "sha256-KOP4QnkiRwiD5KEOr6ceF67rfTP1OqPmCCft6xDC3k4=",
+        "lastModified": 1767971841,
+        "narHash": "sha256-TwDXF4MkmjI9c3Sly9FOWXf4sPbre6ZujG87v39G1Ig=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "d787ec69c3216ea33be1c0424fe65cb23aa8fb31",
+        "rev": "0e4217b2c4827e71e2e612accccb01981c16afda",
         "type": "github"
       },
       "original": {
@@ -83,7 +83,7 @@
         "type": "github"
       }
     },
-    "kwin-gestures": {
+    "inputactions": {
       "inputs": {
         "nixpkgs": [
           "nixpkgs"
@@ -91,17 +91,19 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1765038317,
-        "narHash": "sha256-zf7I63QrZiA2ofr9Ga2RzRrEZDyk+zPXffXE8fhpbI4=",
-        "owner": "taj-ny",
-        "repo": "kwin-gestures",
-        "rev": "7f8cfb26f3ed2652f21208d1fd49e3d5655ed8ac",
-        "type": "github"
+        "lastModified": 1767730226,
+        "narHash": "sha256-VxGCzqQopdqFEOos/6HAyLwPwy7wIEcq/iTHEkBnW+Y=",
+        "ref": "refs/heads/main",
+        "rev": "7ffc5b6c930031b9bded124a12651ffb452aa7ce",
+        "revCount": 637,
+        "submodules": true,
+        "type": "git",
+        "url": "https://github.com/taj-ny/InputActions"
       },
       "original": {
-        "owner": "taj-ny",
-        "repo": "kwin-gestures",
-        "type": "github"
+        "submodules": true,
+        "type": "git",
+        "url": "https://github.com/taj-ny/InputActions"
       }
     },
     "lazyvim": {
@@ -112,11 +114,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1765315270,
-        "narHash": "sha256-E06fubkv6gWLiQd/K0njl8wtFShu30rDLNRhf/LRma0=",
+        "lastModified": 1767986188,
+        "narHash": "sha256-z3m/3JomuimxQUVauP9n1GO+QHa50xvAMLKKw1vWE0Q=",
         "owner": "pfassina",
         "repo": "lazyvim-nix",
-        "rev": "a3615f3ac58cefacb83123643394f88d09006912",
+        "rev": "af3997a8b663ae0d570ae04867cd4b51873adfe2",
         "type": "github"
       },
       "original": {
@@ -127,11 +129,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1765472234,
-        "narHash": "sha256-9VvC20PJPsleGMewwcWYKGzDIyjckEz8uWmT0vCDYK0=",
+        "lastModified": 1767892417,
+        "narHash": "sha256-dhhvQY67aboBk8b0/u0XB6vwHdgbROZT3fJAjyNh5Ww=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "2fbfb1d73d239d2402a8fe03963e37aab15abe8b",
+        "rev": "3497aa5c9457a9d88d71fa93a4a8368816fbeeba",
         "type": "github"
       },
       "original": {
@@ -146,7 +148,7 @@
         "agenix": "agenix",
         "disko": "disko",
         "home-manager": "home-manager",
-        "kwin-gestures": "kwin-gestures",
+        "inputactions": "inputactions",
         "lazyvim": "lazyvim",
         "nixpkgs": "nixpkgs"
       }

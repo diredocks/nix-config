@@ -11,8 +11,8 @@
     #   url = "github:alexghr/alacritty-theme.nix?shallow=1";
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
-    kwin-gestures = {
-      url = "github:taj-ny/kwin-gestures";
+    inputactions = {
+      url = "git+https://github.com/taj-ny/InputActions?submodules=1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     agenix = {
