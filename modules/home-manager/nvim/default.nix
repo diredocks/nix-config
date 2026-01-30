@@ -22,6 +22,7 @@
     extras = {
       lang.typescript.enable = true;
     };
+    pluginSource = "nixpkgs";
   };
   # Set default editor
   home.sessionVariables.EDITOR = "nvim";
