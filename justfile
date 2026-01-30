@@ -13,7 +13,7 @@ update:
   nix flake update
 
 gc:
-  sudo nix store gc
+  sudo nix store gc --debug
   sudo nix-collect-garbage --delete-old
   nix-collect-garbage --delete-old
 

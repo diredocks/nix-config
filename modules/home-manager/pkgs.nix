@@ -17,6 +17,7 @@
         "--wayland-text-input-version=3"
         "--enable-features=TouchpadOverscrollHistoryNavigation"
         "--disable-features=GlobalShortcutsPortal"
+        "--disable-features=WaylandWpColorManagerV1"
       ];
     })
     hugo
