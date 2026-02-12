@@ -109,9 +109,6 @@
       probook-nix = makeConfig {
         host = "probook-nix";
       };
-      pixelbook-nix = makeConfig {
-        host = "pixelbook-nix";
-      };
       vmiss-la = makeConfig {
         host = "vmiss-la";
         withDisko = true;
