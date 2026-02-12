@@ -15,6 +15,7 @@
     ../../modules/nixos/pkgs.nix
     ../../modules/nixos/services
     ../../modules/nixos/services/virt.nix
+    ../../modules/nixos/services/android-studio.nix
     ../../modules/nixos/desktop
   ];
 
