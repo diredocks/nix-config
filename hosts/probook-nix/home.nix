@@ -11,7 +11,7 @@
     ../../modules/home-manager/kwin
     ../../modules/home-manager/nvim
     ../../modules/home-manager/pkgs.nix
-    ../../modules/home-manager/foot.nix
+    ../../modules/home-manager/alacritty.nix
     ../../modules/home-manager/vscode.nix
   ];
 

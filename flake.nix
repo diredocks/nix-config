@@ -7,10 +7,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # alacritty-theme = {
-    #   url = "github:alexghr/alacritty-theme.nix?shallow=1";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
     inputactions = {
       url = "git+https://github.com/taj-ny/InputActions?submodules=1";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -39,7 +35,6 @@
     self,
     nixpkgs,
     home-manager,
-    # alacritty-theme,
     agenix,
     # wrangler,
     ...
