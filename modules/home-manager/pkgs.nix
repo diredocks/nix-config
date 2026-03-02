@@ -22,7 +22,7 @@
     vlc
     remmina
     # zed-editor
-    claude-code
+    # claude-code
     thunderbird
     hmcl
   ];
