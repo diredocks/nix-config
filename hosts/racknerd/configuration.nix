@@ -19,7 +19,6 @@ in {
     ../../modules/nixos/services/sshd.nix
     ../../modules/nixos/services/shell.nix
     ../../modules/nixos/services/sing-box.nix
-    ../../modules/nixos/services/tailscale-derper.nix
   ];
 
   networking.hostName = "racknerd";
@@ -54,12 +53,6 @@ in {
   };
 
   services.tailscale.enable = true;
-  services.tailscale.derper = {
-    enable = true;
-    envFile = config.age.secrets.racknerd-derp.path;
-  };
-  systemd.services.tailscale-derper.restartTriggers = ["${config.age.secrets.racknerd-derp.file}"];
-  age.secrets.racknerd-derp.file = ../../secrets/racknerd-derp.env;
 
   services.cloudflare-warp = {
     enable = true;
