@@ -21,10 +21,6 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # wrangler = {
-    #   url = "github:emrldnix/wrangler?shallow=1";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
     lazyvim = {
       url = "github:pfassina/lazyvim-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -40,7 +36,6 @@
     nixpkgs,
     home-manager,
     agenix,
-    # wrangler,
     ...
   } @ inputs: let
     inherit (self) outputs;

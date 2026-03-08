@@ -5,7 +5,6 @@
 
   # This one contains whatever you want to overlay
   modifications = final: prev: {
-    # wrangler = inputs.wrangler.packages.${final.system}.default;
     strawberry = prev.strawberry.overrideAttrs (old: rec {
       src = prev.fetchFromGitHub {
         owner = "diredocks";
