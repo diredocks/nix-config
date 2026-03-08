@@ -23,9 +23,13 @@
         # "https://cache.nixos.org"
         # "https://wrangler.cachix.org"
       ];
+      extra-substituters = ["https://cache.numtide.com"];
       trusted-public-keys = [
         # "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
         # "wrangler.cachix.org-1:N/FIcG2qBQcolSpklb2IMDbsfjZKWg+ctxx0mSMXdSs="
+      ];
+      extra-trusted-public-keys = [
+        "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g="
       ];
     };
     # Opinionated: disable channels

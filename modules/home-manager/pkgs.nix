@@ -22,7 +22,6 @@
     vlc
     remmina
     # zed-editor
-    # claude-code
     thunderbird
     hmcl
     jetbrains.idea
