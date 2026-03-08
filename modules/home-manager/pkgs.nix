@@ -25,5 +25,6 @@
     # claude-code
     thunderbird
     hmcl
+    jetbrains.idea
   ];
 }
