@@ -18,13 +18,10 @@
       auto-optimise-store = true;
       trusted-users = ["leo"];
       substituters = [
-        "https://mirrors.sjtug.sjtu.edu.cn/nix-channels/store"
+        "https://mirrors.sjtug.sjtu.edu.cn/nix-channels/store?priority=1"
+        "https://cache.numtide.com?priority=10"
         # "https://mirrors.cernet.edu.cn/nix-channels/store"
         # "https://cache.nixos.org"
-      ];
-      extra-substituters = ["https://cache.numtide.com"];
-      trusted-public-keys = [
-        # "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
       ];
       extra-trusted-public-keys = [
         "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g="
