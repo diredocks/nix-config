@@ -21,6 +21,7 @@
     configFiles = ./lua;
     extras = {
       lang.typescript.enable = true;
+      lang.go.enable = true;
     };
     # pluginSource = "nixpkgs";
   };
