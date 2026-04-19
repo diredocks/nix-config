@@ -15,6 +15,7 @@
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
+      inputs.darwin.follows = "";
     };
     disko = {
       url = "github:nix-community/disko";
@@ -28,6 +29,10 @@
       url = "github:numtide/llm-agents.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    deploy-rs = {
+      url = "github:serokell/deploy-rs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -35,6 +40,7 @@
     nixpkgs,
     home-manager,
     agenix,
+    deploy-rs,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -117,6 +123,30 @@
       tpm312 = makeConfig {
         host = "tpm312";
         system = "aarch64-linux";
+      };
+    };
+
+    deploy = {
+      sshUser = "leo";
+      user = "root";
+      interactiveSudo = true;
+      autoRollback = false;
+      magicRollback = false;
+      remoteBuild = true;
+
+      nodes = {
+        vmiss-la = {
+          hostname = "vmlatl";
+          profiles.system.path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.vmiss-la;
+        };
+        racknerd = {
+          hostname = "rntl";
+          profiles.system.path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.racknerd;
+        };
+        aliyun = {
+          hostname = "alitl";
+          profiles.system.path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.aliyun;
+        };
       };
     };
   };

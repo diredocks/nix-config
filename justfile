@@ -6,8 +6,8 @@ boot:
 switch:
   nixos-rebuild switch --flake . --sudo --ask-sudo-password
 
-deploy host='' target='':
-  nixos-rebuild switch --flake .#{{host}} --target-host {{target}} --sudo --ask-sudo-password 
+deploy:
+  nix run github:serokell/deploy-rs -- -s .
 
 update:
   nix flake update

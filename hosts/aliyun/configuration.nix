@@ -41,6 +41,16 @@ in {
   time.timeZone = "Asia/Tokyo";
   i18n.defaultLocale = "en_US.UTF-8";
 
+  nix = {
+    settings.substituters = [
+      "https://cache.nixos.org"
+    ];
+    gc = {
+      automatic = true;
+      dates = "daily";
+    };
+  };
+
   users.users = {
     leo = {
       initialPassword = "1";
