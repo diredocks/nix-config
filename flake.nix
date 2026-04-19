@@ -49,6 +49,19 @@
       "aarch64-linux"
     ];
     forAllSystems = nixpkgs.lib.genAttrs systems;
+
+    deployPkgs = forAllSystems (system:
+      import nixpkgs {
+        inherit system;
+        overlays = [
+          (self: super: {
+            deploy-rs = {
+              inherit ((inputs.deploy-rs.overlays.default self super).deploy-rs) lib;
+              inherit (super) deploy-rs;
+            };
+          })
+        ];
+      });
   in {
     packages =
       forAllSystems (
@@ -137,15 +150,15 @@
       nodes = {
         vmiss-la = {
           hostname = "vmlatl";
-          profiles.system.path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.vmiss-la;
+          profiles.system.path = deployPkgs.x86_64-linux.deploy-rs.lib.activate.nixos self.nixosConfigurations.vmiss-la;
         };
         racknerd = {
           hostname = "rntl";
-          profiles.system.path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.racknerd;
+          profiles.system.path = deployPkgs.x86_64-linux.deploy-rs.lib.activate.nixos self.nixosConfigurations.racknerd;
         };
         aliyun = {
           hostname = "alitl";
-          profiles.system.path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.aliyun;
+          profiles.system.path = deployPkgs.x86_64-linux.deploy-rs.lib.activate.nixos self.nixosConfigurations.aliyun;
         };
       };
     };

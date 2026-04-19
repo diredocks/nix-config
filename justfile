@@ -7,7 +7,7 @@ switch:
   nixos-rebuild switch --flake . --sudo --ask-sudo-password
 
 deploy:
-  nix run github:serokell/deploy-rs -- -s .
+  nix run nixpkgs#deploy-rs -- -s .
 
 update:
   nix flake update
