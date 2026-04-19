@@ -10,27 +10,24 @@
     flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
   in {
     settings = {
-      # Enable flakes and new 'nix' command
       experimental-features = "nix-command flakes";
-      # Opinionated: disable global registry
       flake-registry = "";
-      # Other stuff
       auto-optimise-store = true;
       trusted-users = ["leo"];
       substituters = [
         "https://mirrors.sjtug.sjtu.edu.cn/nix-channels/store?priority=1"
+      ];
+      extra-substituters = [
         "https://cache.numtide.com?priority=10"
-        # "https://mirrors.cernet.edu.cn/nix-channels/store"
-        # "https://cache.nixos.org"
+        "https://inputactions.cachix.org?priority=10"
       ];
       extra-trusted-public-keys = [
         "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g="
+        "inputactions.cachix.org-1:yBGhAqTOv0V08lrOTBwMAkU7V/9a0i2UPvsvCu39CjE="
       ];
     };
-    # Opinionated: disable channels
     channel.enable = false;
 
-    # Opinionated: make flake registry and nix path match flake inputs
     registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;
     nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
   };
