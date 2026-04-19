@@ -30,6 +30,9 @@
         serif = ["Noto Serif CJK SC" "Source Han Serif SC" "DejaVu Serif"];
       };
       useEmbeddedBitmaps = true;
+      antialias = true;
+      subpixel.rgba = "rgb";
+      hinting.style = "slight";
     };
   };
 }
