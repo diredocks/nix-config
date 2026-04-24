@@ -41,4 +41,9 @@
   ];
   boot.kernel.sysctl."net.ipv4.tcp_congestion_control" = "bbr";
   boot.kernel.sysctl."net.core.default_qdisc" = "fq";
+  boot.kernel.sysctl."net.ipv4.tcp_sack" = "1";
+  boot.kernel.sysctl."net.ipv4.tcp_dsack" = "1";
+  boot.kernel.sysctl."net.ipv4.tcp_mtu_probing" = "1";
+  boot.kernel.sysctl."net.ipv4.tcp_frto" = "2";
+  boot.kernel.sysctl."net.ipv4.tcp_window_scaling" = "1";
 }
