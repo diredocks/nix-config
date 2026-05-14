@@ -36,5 +36,17 @@
     };
   };
 
+  services.keyd = {
+    enable = true;
+    keyboards = {
+      all = {
+        ids = ["*"];
+        settings.main = {
+          capslock = "backspace";
+        };
+      };
+    };
+  };
+
   system.stateVersion = "23.05";
 }
