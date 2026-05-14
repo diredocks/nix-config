@@ -118,8 +118,8 @@
             ];
         };
     in {
-      probook-nix = makeConfig {
-        host = "probook-nix";
+      probook = makeConfig {
+        host = "probook";
       };
       vmiss-la = makeConfig {
         host = "vmiss-la";

@@ -18,7 +18,7 @@
     ../../modules/nixos/desktop
   ];
 
-  networking.hostName = "probook-nix";
+  networking.hostName = "probook";
   networking.networkmanager.enable = true;
   systemd.services.NetworkManager-wait-online.enable = false;
 
