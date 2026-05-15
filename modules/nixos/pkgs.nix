@@ -7,7 +7,8 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
-    unzip
+    zip
+    rar
     wget
     curl
     vim
@@ -18,7 +19,6 @@
     fastfetch
     fd
     ripgrep
-    unrar
     just
     git
   ];
