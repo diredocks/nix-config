@@ -19,7 +19,7 @@
     fd
     ripgrep
     unrar
-    bat
     just
+    git
   ];
 }
