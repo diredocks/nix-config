@@ -24,6 +24,6 @@
     # zed-editor
     thunderbird
     hmcl
-    jetbrains.idea
+    # jetbrains.idea
   ];
 }
