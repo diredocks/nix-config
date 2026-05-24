@@ -14,6 +14,7 @@
     ../../modules/home-manager/alacritty.nix
     ../../modules/home-manager/vscode.nix
     ../../modules/home-manager/llm-agents.nix
+    ../../modules/home-manager/android-studio.nix
   ];
 
   home = {
