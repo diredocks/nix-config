@@ -14,7 +14,7 @@
       flake-registry = "";
       auto-optimise-store = true;
       trusted-users = ["leo"];
-      substituters = lib.mkDefault [
+      substituters = [
         "https://mirrors.sjtug.sjtu.edu.cn/nix-channels/store?priority=1"
       ];
       extra-substituters = [
