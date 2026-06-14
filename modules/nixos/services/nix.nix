@@ -15,7 +15,7 @@
       auto-optimise-store = true;
       trusted-users = ["leo"];
       substituters = [
-        "https://mirrors.sjtug.sjtu.edu.cn/nix-channels/store?priority=1"
+        "https://mirror.sjtu.edu.cn/nix-channels/store?priority=1"
       ];
       extra-substituters = [
         "https://cache.numtide.com?priority=10"
