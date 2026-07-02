@@ -18,6 +18,7 @@
   environment.systemPackages = with pkgs; [
     inputs.inputactions.packages.${pkgs.stdenv.hostPlatform.system}.inputactions-ctl
     inputs.inputactions.packages.${pkgs.stdenv.hostPlatform.system}.inputactions-kwin
+    kdePackages.oxygen
   ];
   security.pam.services.leo.kwallet.enable = true;
 }
