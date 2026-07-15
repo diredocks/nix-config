@@ -3,57 +3,47 @@ touchpad:
     swipe_threshold: 45
   gestures:
     - type: swipe
-      conditions:
-        - $fingers == 3
+      fingers: 3
       direction: down
       actions:
         - on: begin
           plasma_shortcut: kwin,Window Maximize
           conditions:
-            - window_state:
-                - maximized
+            - $window_maximized
+            - !$window_fullscreen
         - on: begin
           plasma_shortcut: kwin,Window Fullscreen
           conditions:
-            - window_state:
-                - fullscreen
+            - $window_fullscreen
         - on: begin
           plasma_shortcut: kwin,Window Minimize
           conditions:
-            - negate:
-                - window_state
-              window_state:
-                - fullscreen
-                - maximized
+            - none:
+                - $window_fullscreen
+                - $window_maximized
     - type: swipe
-      conditions:
-        - $fingers == 3
+      fingers: 3
       direction: up
       actions:
         - on: begin
           plasma_shortcut: kwin,Window Maximize
           conditions:
-            - negate:
-                - window_state
-              window_state:
-                - maximized
+            - !$window_maximized
         - on: begin
           plasma_shortcut: kwin,Window Fullscreen
           conditions:
-            - window_state:
-                - maximized
-                - fullscreen
+            - any:
+                - $window_maximized
+                - $window_fullscreen
     - type: pinch
-      conditions:
-        - $fingers == 3
+      fingers: 3
       direction: in
       actions:
         - on: begin
           plasma_shortcut: kwin,Window Close
     - type: swipe
       direction: left_right
-      conditions:
-        - $fingers == 3
+      fingers: 3
       actions:
         - on: begin
           input:

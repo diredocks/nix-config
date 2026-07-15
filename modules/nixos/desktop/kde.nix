@@ -21,4 +21,13 @@
     kdePackages.oxygen
   ];
   security.pam.services.leo.kwallet.enable = true;
+  services.udev.packages = [
+    (pkgs.writeTextFile {
+      name = "inputactions-udev-rules";
+      text = ''
+        ENV{ID_INPUT_TOUCHPAD}=="1", TAG+="uaccess"
+      '';
+      destination = "/etc/udev/rules.d/71-touchpad.rules";
+    })
+  ];
 }

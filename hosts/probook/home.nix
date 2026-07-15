@@ -8,7 +8,7 @@
   imports = [
     inputs.lazyvim.homeManagerModules.default
     ../../modules/home-manager
-    ../../modules/home-manager/kwin
+    ../../modules/home-manager/inputactions
     ../../modules/home-manager/nvim
     ../../modules/home-manager/pkgs.nix
     ../../modules/home-manager/alacritty.nix
