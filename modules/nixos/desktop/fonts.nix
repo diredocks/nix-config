@@ -6,7 +6,6 @@
   ...
 }: {
   fonts = {
-    fontconfig.enable = true;
     packages = with pkgs; [
       noto-fonts
       noto-fonts-cjk-sans
@@ -23,6 +22,7 @@
       adwaita-fonts
     ];
     fontconfig = {
+      enable = true;
       defaultFonts = {
         emoji = ["Noto Color Emoji"];
         monospace = ["Noto Sans Mono CJK SC" "DejaVu Sans Mono"];
