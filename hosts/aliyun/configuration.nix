@@ -63,10 +63,6 @@ in {
   };
 
   services.tailscale.enable = true;
-  services.cloudflare-warp = {
-    enable = true;
-    package = pkgs.cloudflare-warp.override {headless = true;};
-  };
 
   environment.systemPackages = with pkgs; [
     tailscale
