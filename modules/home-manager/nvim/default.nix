@@ -22,6 +22,7 @@
     extras = {
       lang.typescript.enable = true;
       lang.go.enable = true;
+      lang.clangd.enable = true;
     };
     # pluginSource = "nixpkgs";
   };
